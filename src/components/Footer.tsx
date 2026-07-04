@@ -6,7 +6,7 @@ import {
   InstagramIcon,
   TwitterIcon,
 } from "./SocialIcons";
-import { Heart } from "lucide-react";
+
 
 interface FooterProps {
   profile: ProfileData;
@@ -48,9 +48,7 @@ export default function Footer({ profile }: FooterProps) {
             ))}
           </div>
 
-          <div className="text-slate-500 light:text-slate-400 text-sm flex items-center gap-1">
-            Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" />
-          </div>
+
         </div>
       </div>
     </footer>

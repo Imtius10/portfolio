@@ -55,11 +55,9 @@ export default async function Home() {
       <ScrollReveal>
         <Education education={data.education} />
       </ScrollReveal>
-      {data.experience.length > 0 && (
-        <ScrollReveal>
-          <Experience experience={data.experience} />
-        </ScrollReveal>
-      )}
+      <ScrollReveal>
+        <Experience experience={data.experience} />
+      </ScrollReveal>
       <ScrollReveal>
         <Projects projects={data.projects} />
       </ScrollReveal>

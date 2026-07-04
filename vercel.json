@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "imtius.dev"
+        }
+      ],
+      "destination": "https://portfolio-two-kohl-35.vercel.app/:path*",
+      "permanent": true
+    }
+  ]
+}

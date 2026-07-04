@@ -13,17 +13,29 @@ export default function Experience({ experience }: ExperienceProps) {
     });
   };
 
-  if (experience.length === 0) return null;
-
   return (
-    <section id="experience" className="py-20 bg-slate-900">
+    <section id="experience" className="py-20 bg-slate-900 light:bg-slate-100 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Work <span className="text-emerald-400">Experience</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white light:text-slate-800 mb-4">
+            Work <span className="text-emerald-400 light:text-emerald-600">Experience</span>
           </h2>
-          <div className="w-20 h-1 bg-emerald-400 mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-emerald-400 light:bg-emerald-600 mx-auto rounded-full"></div>
         </div>
+
+        {experience.length === 0 && (
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="bg-white/5 light:bg-white/70 backdrop-blur-md rounded-2xl p-12 border border-white/10 light:border-slate-200">
+              <Briefcase className="w-12 h-12 text-emerald-400 light:text-emerald-600 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold text-white light:text-slate-800 mb-2">
+                Open to Opportunities
+              </h3>
+              <p className="text-slate-400 light:text-slate-500">
+                I&apos;m a fresh graduate seeking my first role. Ready to bring my skills and passion to a dynamic team.
+              </p>
+            </div>
+          </div>
+        )}
 
         <div className="max-w-3xl mx-auto space-y-6">
           {experience.map((exp) => (

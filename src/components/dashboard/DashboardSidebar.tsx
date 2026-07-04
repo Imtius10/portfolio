@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 const menuItems = [
   { label: "Overview", href: "/dashboard", icon: "📊" },
@@ -16,6 +16,13 @@ const menuItems = [
 
 export default function DashboardSidebar() {
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await fetch("/api/auth/logout", { method: "POST" });
+    router.push("/dashboard/login");
+    router.refresh();
+  };
 
   return (
     <aside className="w-64 bg-slate-900 border-r border-slate-700/50 min-h-screen p-4">
@@ -49,7 +56,7 @@ export default function DashboardSidebar() {
         })}
       </nav>
 
-      <div className="mt-8 pt-4 border-t border-slate-700/50">
+      <div className="mt-8 pt-4 border-t border-slate-700/50 space-y-1">
         <Link
           href="/"
           className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all duration-200"
@@ -57,6 +64,13 @@ export default function DashboardSidebar() {
           <span className="text-lg">🌐</span>
           View Portfolio
         </Link>
+        <button
+          onClick={handleLogout}
+          className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:text-red-400 hover:bg-slate-800/50 transition-all duration-200 w-full"
+        >
+          <span className="text-lg">🚪</span>
+          Logout
+        </button>
       </div>
     </aside>
   );
