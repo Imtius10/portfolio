@@ -129,12 +129,6 @@ export default function LecturerPage() {
 
             {/* Desktop */}
             <div className="hidden md:flex items-center space-x-1">
-              <Link
-                href="/"
-                className="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-blue-400 hover:bg-white/5 transition-all"
-              >
-                &larr; Main
-              </Link>
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -171,13 +165,6 @@ export default function LecturerPage() {
         {mobileOpen && (
           <div className="md:hidden bg-slate-900/95 backdrop-blur-xl border-t border-white/10">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <Link
-                href="/"
-                onClick={() => setMobileOpen(false)}
-                className="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-blue-400 hover:bg-white/5 transition-all"
-              >
-                &larr; Main
-              </Link>
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
