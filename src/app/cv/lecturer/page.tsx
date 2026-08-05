@@ -46,9 +46,6 @@ export default function LecturerCVPage() {
                   <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">
                     Imtius Ahmad
                   </h1>
-                  <p className="text-sm text-blue-600 font-semibold mt-0.5">
-                    Aspiring Lecturer | BSc in CSE
-                  </p>
                 </div>
                 <div className="text-right text-[11px] text-slate-600 space-y-0.5">
                   <p>h.imtius10@gmail.com</p>

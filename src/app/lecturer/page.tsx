@@ -123,12 +123,18 @@ export default function LecturerPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-white/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className="text-slate-400 hover:text-blue-400 text-sm font-medium transition-colors">
-              &larr; Main Portfolio
+            <Link href="/" className="text-xl font-bold text-blue-400">
+              Imtius<span className="text-slate-400 font-normal">.academic</span>
             </Link>
 
             {/* Desktop */}
             <div className="hidden md:flex items-center space-x-1">
+              <Link
+                href="/"
+                className="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-blue-400 hover:bg-white/5 transition-all"
+              >
+                &larr; Main
+              </Link>
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -165,6 +171,13 @@ export default function LecturerPage() {
         {mobileOpen && (
           <div className="md:hidden bg-slate-900/95 backdrop-blur-xl border-t border-white/10">
             <div className="px-2 pt-2 pb-3 space-y-1">
+              <Link
+                href="/"
+                onClick={() => setMobileOpen(false)}
+                className="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-blue-400 hover:bg-white/5 transition-all"
+              >
+                &larr; Main
+              </Link>
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
