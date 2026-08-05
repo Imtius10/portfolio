@@ -194,35 +194,41 @@ export default function LecturerPage() {
         className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 pt-16 relative overflow-hidden"
       >
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/8 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/8 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-blue-400/5 rounded-full blur-3xl"></div>
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
+          <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-blue-400/8 rounded-full blur-3xl animate-float"></div>
         </div>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full mb-8 animate-fade-in-up opacity-0">
             <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
             <span className="text-blue-400 text-sm font-medium">Seeking Lecturer Position</span>
           </div>
 
-          <div className="mb-8">
-            <div className="w-36 h-36 mx-auto rounded-full overflow-hidden border-4 border-blue-400/30 shadow-lg shadow-blue-500/20">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/profile.jpg"
-                alt="Imtius Ahmad"
-                className="w-full h-full object-cover"
-              />
+          <div className="mb-10 animate-fade-in-up opacity-0 delay-100">
+            <div className="relative inline-block">
+              <div className="w-52 h-52 sm:w-60 sm:h-60 mx-auto rounded-full overflow-hidden border-4 border-blue-400/40 shadow-2xl shadow-blue-500/30 animate-pulse-glow">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/profile.jpg"
+                  alt="Imtius Ahmad"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -inset-6 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-2xl -z-10 animate-pulse" style={{ animationDelay: "0.5s" }}></div>
+              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-blue-500/90 backdrop-blur-sm rounded-full text-white text-xs font-semibold shadow-lg shadow-blue-500/30">
+                Available for Hire
+              </div>
             </div>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
-            <span className="text-blue-400">Imtius Ahmad</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-4 animate-fade-in-up opacity-0 delay-200">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Imtius Ahmad</span>
           </h1>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-300 mb-6">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-300 mb-6 animate-fade-in-up opacity-0 delay-300">
             Aspiring Lecturer in Computer Science
           </h2>
-          <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto animate-fade-in-up opacity-0 delay-400">
             Recent BSc CSE graduate passionate about teaching{" "}
             <span className="text-blue-400 font-medium">Programming</span>,{" "}
             <span className="text-blue-400 font-medium">Data Structures</span>, and{" "}
@@ -230,42 +236,42 @@ export default function LecturerPage() {
             Seeking a lecturer position to make CS accessible and engaging for all students.
           </p>
 
-          <div className="flex flex-wrap gap-4 justify-center mb-8">
-            <div className="px-5 py-3 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl text-center">
-              <p className="text-2xl font-bold text-blue-400">3.55</p>
+          <div className="flex flex-wrap gap-4 justify-center mb-10">
+            <div className="px-6 py-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl text-center hover:bg-blue-500/10 hover:border-blue-400/30 transition-all duration-300 hover:scale-105 animate-fade-in-up opacity-0 delay-200">
+              <p className="text-3xl font-bold text-blue-400">3.55</p>
               <p className="text-xs text-slate-400">CGPA / 4.00</p>
             </div>
-            <div className="px-5 py-3 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl text-center">
-              <p className="text-2xl font-bold text-blue-400">14</p>
+            <div className="px-6 py-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl text-center hover:bg-blue-500/10 hover:border-blue-400/30 transition-all duration-300 hover:scale-105 animate-fade-in-up opacity-0 delay-300">
+              <p className="text-3xl font-bold text-blue-400">14</p>
               <p className="text-xs text-slate-400">Teaching Areas</p>
             </div>
-            <div className="px-5 py-3 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl text-center">
-              <p className="text-2xl font-bold text-blue-400">100+</p>
+            <div className="px-6 py-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl text-center hover:bg-blue-500/10 hover:border-blue-400/30 transition-all duration-300 hover:scale-105 animate-fade-in-up opacity-0 delay-400">
+              <p className="text-3xl font-bold text-blue-400">100+</p>
               <p className="text-xs text-slate-400">CP Solutions</p>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10 animate-fade-in-up opacity-0 delay-500">
             <a
               href="#teaching"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-500/80 hover:bg-blue-400/80 text-white font-semibold rounded-xl border border-blue-400/20 transition-all shadow-lg shadow-blue-500/20"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:scale-105"
             >
               <BookOpen className="w-5 h-5" />
               View Teaching Areas
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 text-slate-300 hover:text-white font-semibold rounded-xl transition-all"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 text-slate-300 hover:text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105"
             >
               <Mail className="w-5 h-5" />
               Contact Me
             </a>
           </div>
 
-          <div className="flex gap-3 justify-center">
+          <div className="flex gap-3 justify-center animate-fade-in-up opacity-0 delay-500">
             <a
               href="mailto:h.imtius10@gmail.com"
-              className="p-3 bg-white/5 backdrop-blur-md hover:bg-blue-500/20 border border-white/10 hover:border-blue-400/30 rounded-xl text-slate-400 hover:text-blue-400 transition-all"
+              className="p-3.5 bg-white/5 backdrop-blur-md hover:bg-blue-500/20 border border-white/10 hover:border-blue-400/30 rounded-xl text-slate-400 hover:text-blue-400 transition-all duration-300 hover:scale-110"
             >
               <Mail className="w-5 h-5" />
             </a>
@@ -273,7 +279,7 @@ export default function LecturerPage() {
               href="https://linkedin.com/in/imtius10"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-white/5 backdrop-blur-md hover:bg-blue-500/20 border border-white/10 hover:border-blue-400/30 rounded-xl text-slate-400 hover:text-blue-400 transition-all"
+              className="p-3.5 bg-white/5 backdrop-blur-md hover:bg-blue-500/20 border border-white/10 hover:border-blue-400/30 rounded-xl text-slate-400 hover:text-blue-400 transition-all duration-300 hover:scale-110"
             >
               <ExternalLink className="w-5 h-5" />
             </a>
@@ -281,14 +287,14 @@ export default function LecturerPage() {
               href="https://github.com/Imtius10"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-white/5 backdrop-blur-md hover:bg-blue-500/20 border border-white/10 hover:border-blue-400/30 rounded-xl text-slate-400 hover:text-blue-400 transition-all"
+              className="p-3.5 bg-white/5 backdrop-blur-md hover:bg-blue-500/20 border border-white/10 hover:border-blue-400/30 rounded-xl text-slate-400 hover:text-blue-400 transition-all duration-300 hover:scale-110"
             >
               <ExternalLink className="w-5 h-5" />
             </a>
             <a
               href="/images/profile.jpg"
               download="Imtius-Ahmad.jpg"
-              className="p-3 bg-white/5 backdrop-blur-md hover:bg-blue-500/20 border border-white/10 hover:border-blue-400/30 rounded-xl text-slate-400 hover:text-blue-400 transition-all"
+              className="p-3.5 bg-white/5 backdrop-blur-md hover:bg-blue-500/20 border border-white/10 hover:border-blue-400/30 rounded-xl text-slate-400 hover:text-blue-400 transition-all duration-300 hover:scale-110"
             >
               <Download className="w-5 h-5" />
             </a>
@@ -296,7 +302,7 @@ export default function LecturerPage() {
 
           <a
             href="#about"
-            className="inline-block mt-12 text-slate-400 hover:text-blue-400 transition-colors animate-bounce"
+            className="inline-block mt-14 text-slate-400 hover:text-blue-400 transition-colors animate-bounce"
           >
             <ChevronDown className="w-8 h-8" />
           </a>
@@ -405,10 +411,11 @@ export default function LecturerPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {teachingAreas.map((area) => (
+            {teachingAreas.map((area, index) => (
               <div
                 key={area.title}
-                className={`bg-gradient-to-br ${area.color} rounded-2xl p-6 border ${area.border} backdrop-blur-sm hover:scale-105 transition-all duration-300`}
+                className={`bg-gradient-to-br ${area.color} rounded-2xl p-6 border ${area.border} backdrop-blur-sm hover:scale-105 transition-all duration-300 animate-fade-in-up opacity-0`}
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className={`mb-4 ${area.text}`}>{area.icon}</div>
                 <h3 className="text-white font-semibold text-lg mb-3">{area.title}</h3>
