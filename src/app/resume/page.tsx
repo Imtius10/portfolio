@@ -91,11 +91,19 @@ export default function ResumePage() {
                 <p className="text-xs text-slate-600">Netrokona University</p>
               </div>
 
-              <div className="flex justify-between items-baseline">
-                <h3 className="text-xs font-bold text-slate-900">HSC (Science) — GPA: 5.00/5.00</h3>
-                <span className="text-[10px] text-slate-500">2018 – 2020</span>
+              <div className="mb-1.5">
+                <div className="flex justify-between items-baseline">
+                  <h3 className="text-xs font-bold text-slate-900">HSC (Science) — GPA: 5.00/5.00</h3>
+                  <span className="text-[10px] text-slate-500">2018 – 2020</span>
+                </div>
+                <p className="text-xs text-slate-600">Bogura Government College, Rajshahi Board</p>
               </div>
-              <p className="text-xs text-slate-600">Bogura Government College, Rajshahi Board</p>
+
+              <div className="flex justify-between items-baseline">
+                <h3 className="text-xs font-bold text-slate-900">SSC/Dakhil — GPA: 5.00/5.00</h3>
+                <span className="text-[10px] text-slate-500">2018</span>
+              </div>
+              <p className="text-xs text-slate-600">Netrokona</p>
             </section>
 
             {/* Skills */}

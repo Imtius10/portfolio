@@ -15,7 +15,7 @@ export default function LecturerCVPage() {
       <div className="no-print fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200 shadow-sm">
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
           <button
-            onClick={() => router.push("/")}
+            onClick={() => router.push("/lecturer")}
             className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium cursor-pointer"
           >
             &larr; Back to Portfolio
@@ -88,11 +88,18 @@ export default function LecturerCVPage() {
                 </div>
                 <p className="text-[11px] text-slate-600">Netrokona University</p>
               </div>
-              <div className="flex justify-between items-baseline">
-                <h3 className="text-[11px] font-bold text-slate-900">HSC (Science) — GPA: 5.00/5.00</h3>
-                <span className="text-[9px] text-slate-500">2018 – 2020</span>
+              <div className="mb-1.5">
+                <div className="flex justify-between items-baseline">
+                  <h3 className="text-[11px] font-bold text-slate-900">HSC (Science) — GPA: 5.00/5.00</h3>
+                  <span className="text-[9px] text-slate-500">2018 – 2020</span>
+                </div>
+                <p className="text-[11px] text-slate-600">Bogura Government College, Rajshahi Board</p>
               </div>
-              <p className="text-[11px] text-slate-600">Bogura Government College, Rajshahi Board</p>
+              <div className="flex justify-between items-baseline">
+                <h3 className="text-[11px] font-bold text-slate-900">SSC/Dakhil — GPA: 5.00/5.00</h3>
+                <span className="text-[9px] text-slate-500">2018</span>
+              </div>
+              <p className="text-[11px] text-slate-600">Netrokona</p>
             </section>
 
             {/* Teaching Areas */}
