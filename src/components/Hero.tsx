@@ -142,6 +142,14 @@ export default function Hero({ profile }: HeroProps) {
                   )}
                 </a>
               ))}
+              <a
+                href={profile.photoUrl || "/images/profile.jpg"}
+                download={`${profile.name.replace(/\s+/g, "-")}.jpg`}
+                className="p-3 bg-white/5 light:bg-white/70 backdrop-blur-md hover:bg-emerald-500/20 border border-white/10 light:border-slate-200 hover:border-emerald-400/30 rounded-xl text-slate-400 light:text-slate-600 hover:text-emerald-400 light:hover:text-emerald-600 transition-all duration-200 shadow-lg shadow-black/10"
+                aria-label="Download Photo"
+              >
+                <Download className="w-5 h-5" />
+              </a>
             </div>
           </div>
 

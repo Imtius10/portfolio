@@ -19,6 +19,7 @@ import {
   Users,
   Award,
   Globe,
+  Download,
 } from "lucide-react";
 
 const navLinks = [
@@ -204,6 +205,17 @@ export default function LecturerPage() {
             <span className="text-blue-400 text-sm font-medium">Seeking Lecturer Position</span>
           </div>
 
+          <div className="mb-8">
+            <div className="w-36 h-36 mx-auto rounded-full overflow-hidden border-4 border-blue-400/30 shadow-lg shadow-blue-500/20">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/profile.jpg"
+                alt="Imtius Ahmad"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
             <span className="text-blue-400">Imtius Ahmad</span>
           </h1>
@@ -273,6 +285,13 @@ export default function LecturerPage() {
             >
               <ExternalLink className="w-5 h-5" />
             </a>
+            <a
+              href="/images/profile.jpg"
+              download="Imtius-Ahmad.jpg"
+              className="p-3 bg-white/5 backdrop-blur-md hover:bg-blue-500/20 border border-white/10 hover:border-blue-400/30 rounded-xl text-slate-400 hover:text-blue-400 transition-all"
+            >
+              <Download className="w-5 h-5" />
+            </a>
           </div>
 
           <a
@@ -326,6 +345,10 @@ export default function LecturerPage() {
                     <div className="flex items-center justify-between py-2 border-b border-white/10">
                       <span className="text-slate-400 text-sm">SSC/Dakhil</span>
                       <span className="text-white font-semibold text-sm">GPA 5.00 (2018)</span>
+                    </div>
+                    <div className="flex items-center justify-between py-2 border-b border-white/10">
+                      <span className="text-slate-400 text-xs">Madrasah Board</span>
+                      <span className="text-white font-semibold text-xs">Bogura</span>
                     </div>
                     <div className="flex items-center justify-between py-2">
                       <span className="text-slate-400 text-sm">Status</span>

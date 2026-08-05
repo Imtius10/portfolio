@@ -83,7 +83,7 @@ export default function LecturerCVPage() {
                     <span className="px-1.5 py-0.5 bg-blue-100 text-blue-700 text-[9px] font-bold rounded">
                       CGPA: 3.55/4.00
                     </span>
-                    <span className="text-[9px] text-slate-500">2020 – Present</span>
+                    <span className="text-[9px] text-slate-500">2021 – Present</span>
                   </div>
                 </div>
                 <p className="text-[11px] text-slate-600">Netrokona University</p>
@@ -99,7 +99,7 @@ export default function LecturerCVPage() {
                 <h3 className="text-[11px] font-bold text-slate-900">SSC/Dakhil — GPA: 5.00/5.00</h3>
                 <span className="text-[9px] text-slate-500">2018</span>
               </div>
-              <p className="text-[11px] text-slate-600">Netrokona</p>
+              <p className="text-[11px] text-slate-600">Govt. Mustafabia Alia Madrasah, Bogura (Madrasah Board)</p>
             </section>
 
             {/* Teaching Areas */}
