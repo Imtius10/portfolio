@@ -102,8 +102,8 @@ export default function About({ profile }: AboutProps) {
                   responsive UI and deployment.
                 </p>
                 <p>
-                  My foundation in <span className="text-white light:text-slate-800 font-semibold">competitive programming</span>{" "}
-                  on Codeforces gives me strong problem-solving skills that I apply to software architecture and
+                  My habit of <span className="text-white light:text-slate-800 font-semibold">writing test cases and chasing edge cases</span>{" "}
+                  on every feature gives me strong debugging skills that I apply to software architecture and
                   system design.
                 </p>
                 <p>

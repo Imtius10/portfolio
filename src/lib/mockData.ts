@@ -8,7 +8,7 @@ export const mockProfile: ProfileData = {
     "Building modern web apps with Next.js, TypeScript, and PostgreSQL. Currently pursuing CSE at Netrokona University.",
   bio: `I'm Imtius Ahmad, a full-stack developer and Computer Science student at Netrokona University. I specialize in building modern web applications using Next.js, TypeScript, PostgreSQL, and the MERN stack.
 
-My programming journey started with C++ and competitive programming on Codeforces, which gave me a strong foundation in algorithms and data structures. That problem-solving mindset carries into everything I build — from designing database schemas to architecting API routes.
+My programming journey started with C++, which gave me a strong foundation in algorithms and data structures. I now write thorough test cases for every feature I build. That problem-solving mindset carries into everything I build — from designing database schemas to architecting API routes.
 
 I'm currently working with Next.js App Router, server components, Prisma ORM, and PostgreSQL to build production-ready applications. I enjoy the full cycle of shipping software: designing the data model, writing typed backend logic, crafting responsive UIs, and deploying to production.
 
@@ -62,7 +62,7 @@ When I'm not coding, you'll find me solving algorithmic problems, exploring new 
       startDate: new Date("2022-03-22"),
       endDate: new Date("2026-07-20"),
       description:
-        "Completed all coursework and final examinations; awaiting final result. CGPA 3.55/4.00. Experienced in full-stack web development, algorithm optimization, and competitive programming on Codeforces.",
+        "Completed all coursework and final examinations; awaiting final result. CGPA 3.55/4.00. Experienced in full-stack web development, algorithm optimization, and writing thorough test cases for my web projects.",
     },
     {
       id: "edu-2",
@@ -154,8 +154,8 @@ The profile management section allows users to update their display name and pho
       id: "proj-4",
       title: "WayToCP",
       description:
-        "A collection of competitive programming solutions in C++, showcasing algorithmic problem-solving skills on Codeforces.",
-      longDescription: `WayToCP is a repository containing solutions to various competitive programming problems from Codeforces and other online judges. The solutions are written in C++ and cover a wide range of algorithmic topics including data structures, dynamic programming, greedy algorithms, and more.
+        "A C++ algorithm practice repository covering data structures, DP, greedy methods, and graphs to keep problem-solving skills sharp.",
+      longDescription: `WayToCP is a repository containing solutions to various algorithm problems from online judges. The solutions are written in C++ and cover data structures, dynamic programming, greedy, and graphs.
 
 The repository demonstrates strong problem-solving abilities and understanding of algorithms and data structures. Each solution is well-organized by problem number for easy reference and learning.`,
       imageUrl: null,

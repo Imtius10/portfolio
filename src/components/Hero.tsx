@@ -83,8 +83,8 @@ export default function Hero({ profile }: HeroProps) {
                 <p className="text-xs text-slate-400 light:text-slate-500">Technologies</p>
               </div>
               <div className="px-5 py-3 bg-white/5 light:bg-white/70 backdrop-blur-md border border-white/10 light:border-slate-200 rounded-xl text-center shadow-lg shadow-black/10">
-                <p className="text-2xl font-bold text-emerald-400 light:text-emerald-600">CP</p>
-                <p className="text-xs text-slate-400 light:text-slate-500">Codeforces</p>
+                <p className="text-2xl font-bold text-emerald-400 light:text-emerald-600">QA</p>
+                <p className="text-xs text-slate-400 light:text-slate-500">Test cases written & run</p>
               </div>
             </div>
 

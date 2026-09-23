@@ -11,7 +11,7 @@ interface Subject {
 
 const universitySubjects: Subject[] = [
   { name: "C", icon: "©️", description: "Procedural programming, memory management, pointers", category: "Programming" },
-  { name: "C++", icon: "⚙️", description: "OOP, STL, templates, competitive programming", category: "Programming" },
+  { name: "C++", icon: "⚙️", description: "OOP, STL, templates, algorithm problem-solving", category: "Programming" },
   { name: "Java", icon: "☕", description: "OOP, collections, multithreading, JVM", category: "Programming" },
   { name: "Python", icon: "🐍", description: "Scripting, data analysis, automation", category: "Programming" },
   { name: "Data Structures", icon: "🏗️", description: "Arrays, linked lists, trees, graphs, hash tables", category: "Core CS" },

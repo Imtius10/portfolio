@@ -83,7 +83,7 @@ When I'm not coding, you'll find me reading about technology trends, exploring n
       startDate: new Date("2022-03-22"),
       endDate: new Date("2026-07-20"),
       description:
-        "Completed all coursework and final examinations; awaiting final result. Experienced in full-stack web development, algorithm optimization, and competitive programming on Codeforces.",
+        "Completed all coursework and final examinations; awaiting final result. Experienced in full-stack web development, algorithm optimization, and writing test cases for my own projects.",
       profileId: profile.id,
     },
   });
@@ -197,8 +197,8 @@ The profile management section allows users to update their display name and pho
     {
       title: "WayToCP",
       description:
-        "A collection of competitive programming solutions in C++, showcasing algorithmic problem-solving skills on Codeforces.",
-      longDescription: `WayToCP is a repository containing solutions to various competitive programming problems from Codeforces and other online judges. The solutions are written in C++ and cover a wide range of algorithmic topics including data structures, dynamic programming, greedy algorithms, and more.
+        "A C++ practice repository covering data structures, dynamic programming, greedy, and graphs.",
+      longDescription: `WayToCP is a repository containing solutions to various competitive programming problems from online judges. The solutions are written in C++ and cover a wide range of algorithmic topics including data structures, dynamic programming, greedy algorithms, and more.
 
 The repository demonstrates strong problem-solving abilities and understanding of algorithms and data structures. Each solution is well-organized by problem number for easy reference and learning.`,
       imageUrl: null,
