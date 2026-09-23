@@ -210,7 +210,7 @@ export default function LecturerCVPage() {
                   <span className="font-semibold text-slate-900">Peer Tutor</span> — Helped junior students with DSA, Programming, and exam preparation at Netrokona University
                 </p>
                 <p>
-                  <span className="font-semibold text-slate-900">CP Mentor</span> — Guided peers in competitive programming problem-solving (DP, Greedy, Graph Algorithms)
+                  <span className="font-semibold text-slate-900">Problem-Solving Mentor</span> — Helped classmates work through algorithms (dynamic programming, greedy, graphs) and debugging
                 </p>
                 <p>
                   <span className="font-semibold text-slate-900">Project Guide</span> — Assisted classmates with course projects, debugging, and software design
@@ -232,7 +232,7 @@ export default function LecturerCVPage() {
                     </a>
                   </div>
                   <p className="text-slate-600 mt-0.5">
-                    Curated collection of 100+ competitive programming solutions in C++ covering Dynamic Programming,
+                    A personal C++ practice collection covering DP,
                     Greedy Algorithms, Graph Theory, and Data Structures. Demonstrates algorithmic problem-solving and
                     complexity analysis skills.
                   </p>
@@ -314,7 +314,7 @@ export default function LecturerCVPage() {
                     </p>
                     <p>
                       <span className="font-semibold text-slate-900">Competitive Programmer</span> — Active on
-                      Codeforces solving problems in DP, Greedy, and Graph Algorithms
+                      solving algorithm problems for self-practice
                     </p>
                   </div>
                 </div>

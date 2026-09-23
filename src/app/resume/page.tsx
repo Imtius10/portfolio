@@ -128,7 +128,6 @@ export default function ResumePage() {
                   <p>+8801614742777</p>
                   <p>linkedin.com/in/imtius10</p>
                   <p>github.com/Imtius10</p>
-                  <p>codeforces.com/imtius10</p>
                 </div>
               </div>
             </header>
@@ -139,8 +138,7 @@ export default function ResumePage() {
                 Professional Summary
               </h2>
               <p className="text-xs leading-relaxed text-slate-700">
-                Full-stack developer (Next.js, TypeScript, PostgreSQL, MERN) with rigorous problem-solving habits from competitive programming on Codeforces. Built 3+ production projects — a blood-donation platform with Stripe payments, a surplus-food-sharing app with real-time workflows, and an e-learning SPA — covering REST API design, Prisma ORM data modeling, unit/API testing, and responsive UI development. Methodical and detail-oriented: comfortable with test cases, edge cases, and bug reproduction, with experience coordinating 70+ students and faculty on university tours and organizing departmental tech events. Seeking a junior full-stack developer or QA engineer role to contribute to real-world products.
-              </p>
+                Software developer with strong problem-solving skills from competitive programming and hands-on experience building 3+ full-stack projects using TypeScript, Next.js, PostgreSQL, Prisma, and MERN. Experienced in REST APIs, database design, debugging, Stripe integration, and responsive web development.</p>
             </section>
 
             {/* Education */}
@@ -274,7 +272,7 @@ export default function ResumePage() {
                   </a>
                 </div>
                 <p className="text-[11px] text-slate-600 mt-0.5">
-                  Competitive programming solutions in C++ — DP, Greedy, Graph Algorithms, Data Structures. Actively solving problems on Codeforces.
+                  Algorithm practice repository in C++ covering dynamic programming, greedy methods, and graphs, used to keep my problem-solving and logical skills sharp.
                 </p>
                 <p className="text-[10px] text-slate-500 mt-0.5">
                   <span className="font-semibold">Tech:</span> C++, STL, Algorithm Design
@@ -290,7 +288,7 @@ export default function ResumePage() {
               <ul className="text-xs text-slate-700 space-y-0.5 list-disc list-inside">
                 <li><span className="font-semibold">University Tour Manager</span> — Managed logistics, budgeting, and coordination for 70+ students and faculty across multi-day departmental tours</li>
                 <li><span className="font-semibold">Event Organizer</span> — Planned and executed departmental tech events and academic programs at Netrokona University</li>
-                <li><span className="font-semibold">Competitive Programmer</span> — Active on Codeforces solving problems in DP, Greedy, and Graph Algorithms</li>
+                <li><span className="font-semibold">Problem Solver</span> — Regularly practice algorithm problems to keep logic and debugging skills sharp</li>
               </ul>
             </section>
 
