@@ -26,8 +26,10 @@ export default function Projects({ projects, showAll = false }: ProjectsProps) {
           {displayProjects.map((project) => (
             <div
               key={project.id}
-              className="bg-white/5 light:bg-white/70 backdrop-blur-md rounded-xl overflow-hidden border border-white/10 light:border-slate-200 hover:border-emerald-400/20 transition-all duration-300 group"
+              className="bg-white/5 light:bg-white/70 backdrop-blur-md rounded-xl overflow-hidden border border-white/10 light:border-slate-200 hover:border-emerald-400/20 hover:shadow-xl hover:shadow-emerald-500/10 hover:-translate-y-1 transition-all duration-300 group"
             >
+              {/* Top accent edge */}
+              <div className="h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-blue-500 opacity-60"></div>
               {/* Project Image */}
               <div className="relative h-48 bg-gradient-to-br from-emerald-600 to-blue-600 overflow-hidden">
                 {project.imageUrl ? (
@@ -38,10 +40,20 @@ export default function Projects({ projects, showAll = false }: ProjectsProps) {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <span className="text-5xl font-bold text-white/20">
-                      {project.title.charAt(0)}
-                    </span>
+                  <div className="w-full h-full relative bg-gradient-to-br from-emerald-600 via-teal-600 to-blue-700">
+                    <div className="absolute -top-10 -right-10 w-40 h-40 bg-emerald-400/30 rounded-full blur-2xl"></div>
+                    <div className="absolute -bottom-12 -left-6 w-44 h-44 bg-blue-400/30 rounded-full blur-2xl"></div>
+                    <div className="absolute inset-0 opacity-10"
+                      style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 0)", backgroundSize: "18px 18px" }}
+                    ></div>
+                    <div className="relative w-full h-full flex items-center justify-center">
+                      <span className="text-7xl font-extrabold text-white/25 drop-shadow-lg">
+                        {project.title.charAt(0)}
+                      </span>
+                    </div>
+                    <div className="absolute bottom-3 right-4 text-[10px] font-semibold uppercase tracking-widest text-white/40">
+                      {project.techStack[0]}
+                    </div>
                   </div>
                 )}
                 {project.featured && (
