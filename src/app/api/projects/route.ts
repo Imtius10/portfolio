@@ -50,3 +50,39 @@ export async function POST(request: Request) {
     );
   }
 }
+
+export async function PUT(request: Request) {
+  try {
+    const body = await request.json();
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get("id");
+
+    if (!id) {
+      return NextResponse.json({ error: "Project ID required" }, { status: 400 });
+    }
+
+    const project = await prisma.project.update({
+      where: { id },
+      data: {
+        title: body.title,
+        description: body.description,
+        longDescription: body.longDescription,
+        imageUrl: body.imageUrl,
+        liveUrl: body.liveUrl,
+        githubUrl: body.githubUrl,
+        techStack: body.techStack,
+        challenges: body.challenges,
+        improvements: body.improvements,
+        featured: body.featured,
+      },
+      include: { images: true },
+    });
+
+    return NextResponse.json(project);
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Failed to update project" },
+      { status: 500 }
+    );
+  }
+}
