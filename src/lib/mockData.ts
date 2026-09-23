@@ -161,7 +161,7 @@ The repository demonstrates strong problem-solving abilities and understanding o
       imageUrl: null,
       liveUrl: null,
       githubUrl: "https://github.com/Imtius10/WayToCP",
-      techStack: ["C++", "STL", "Competitive Programming"],
+      techStack: ["C++", "STL", "Algorithms"],
       challenges:
         "Solving problems within strict time and memory limits requires deep understanding of algorithm optimization. Some problems demanded creative approaches and combination of multiple algorithmic techniques.",
       improvements:

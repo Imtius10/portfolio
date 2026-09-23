@@ -85,7 +85,7 @@ const teachingAreas = [
 const researchInterests = [
   "Algorithm Design & Complexity Analysis",
   "Machine Learning Applications in Education",
-  "Competitive Programming Pedagogy",
+  "Algorithm Teaching & Problem-Solving Pedagogy",
   "Software Engineering Best Practices",
   "Computer Science Education Research",
   "Data Structures Visualization",
@@ -95,7 +95,7 @@ const projects = [
   {
     title: "WayToCP",
     description:
-      "Competitive programming solutions repository with 100+ problems covering DP, Greedy, Graph Algorithms, and advanced Data Structures in C++. Used as a teaching resource for peer mentoring.",
+      "A curated C++ algorithm practice repository covering DP, Greedy, Graph Algorithms, and advanced Data Structures — also used as a teaching resource for peer mentoring.",
     tech: "C++, STL, Algorithm Design",
     link: "https://github.com/Imtius10/WayToCP",
   },
@@ -377,8 +377,8 @@ export default function LecturerPage() {
                     system design.
                   </p>
                   <p>
-                    My experience in <span className="text-white font-semibold">competitive programming</span> on
-                    Codeforces has sharpened my problem-solving abilities, which I love sharing with students through
+                    My habit of practicing <span className="text-white font-semibold">algorithm problems</span>
+                    regularly has sharpened my problem-solving abilities, which I love sharing with students through
                     simplified explanations and practical examples.
                   </p>
                   <p>

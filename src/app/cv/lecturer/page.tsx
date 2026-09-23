@@ -226,7 +226,7 @@ export default function LecturerCVPage() {
               <div className="space-y-2 text-[11px]">
                 <div>
                   <div className="flex justify-between items-baseline">
-                    <span className="font-semibold text-slate-900">WayToCP — Competitive Programming Repository</span>
+                    <span className="font-semibold text-slate-900">WayToCP — Algorithm Practice Repository</span>
                     <a href="https://github.com/Imtius10/WayToCP" target="_blank" rel="noopener noreferrer" className="text-[9px] text-[#1e3a8a] font-semibold">
                       GitHub →
                     </a>
@@ -313,8 +313,8 @@ export default function LecturerCVPage() {
                       departmental tech events and academic programs at Netrokona University
                     </p>
                     <p>
-                      <span className="font-semibold text-slate-900">Competitive Programmer</span> — Active on
-                      solving algorithm problems for self-practice
+                      <span className="font-semibold text-slate-900">Problem Solver</span> — Regularly practice
+                      algorithm problems to keep logic and debugging skills sharp
                     </p>
                   </div>
                 </div>

@@ -22,11 +22,11 @@ async function main() {
       designation: "Full Stack Developer",
       tagline:
         "Passionate about building web applications that make a difference. Currently pursuing CSE at Netrokona University.",
-      bio: `I'm Imtius Ahmad, a Computer Science and Engineering student at Netrokona University with a deep passion for web development and problem-solving. My programming journey started with C++ and competitive programming, which sharpened my logical thinking and algorithmic skills.
+      bio: `I'm Imtius Ahmad, a Computer Science and Engineering student at Netrokona University with a deep passion for web development and problem-solving. My programming journey started with C++, which gave me a strong foundation in algorithms and data structures.
 
 Over time, I transitioned into full-stack web development, falling in love with the MERN stack (MongoDB, Express.js, React, Node.js). I enjoy building real-world applications that solve genuine problems — from blood donation platforms to food sharing systems.
 
-Beyond coding, I'm an avid competitive programmer on platforms like Codeforces, where I regularly solve problems to keep my problem-solving skills sharp. I also enjoy exploring new technologies, contributing to open-source projects, and learning about system design.
+Beyond coding, I practice algorithm problems regularly to keep my logic and debugging skills sharp. I also enjoy exploring new technologies, contributing to open-source projects, and learning about system design.
 
 When I'm not coding, you'll find me reading about technology trends, exploring new frameworks, or spending time with friends. I believe in continuous learning and am always looking for new challenges to grow as a developer.`,
       email: "imtiusahmad@gmail.com",
@@ -198,13 +198,13 @@ The profile management section allows users to update their display name and pho
       title: "WayToCP",
       description:
         "A C++ practice repository covering data structures, dynamic programming, greedy, and graphs.",
-      longDescription: `WayToCP is a repository containing solutions to various competitive programming problems from online judges. The solutions are written in C++ and cover a wide range of algorithmic topics including data structures, dynamic programming, greedy algorithms, and more.
+      longDescription: `WayToCP is a repository containing solutions to algorithm problems from online judges. The solutions are written in C++ and cover a wide range of algorithmic topics including data structures, dynamic programming, greedy algorithms, and more.
 
 The repository demonstrates strong problem-solving abilities and understanding of algorithms and data structures. Each solution is well-organized by problem number for easy reference and learning.`,
       imageUrl: null,
       liveUrl: null,
       githubUrl: "https://github.com/Imtius10/WayToCP",
-      techStack: ["C++", "STL", "Competitive Programming"],
+      techStack: ["C++", "STL", "Algorithms"],
       challenges:
         "Solving problems within strict time and memory limits requires deep understanding of algorithm optimization. Some problems demanded creative approaches and combination of multiple algorithmic techniques.",
       improvements:
