@@ -58,10 +58,10 @@ When I'm not coding, you'll find me solving algorithmic problems, exploring new 
       institution: "Netrokona University",
       degree: "Bachelor of Science",
       field: "Computer Science & Engineering",
-      startDate: new Date("2020-01-01"),
-      endDate: null,
+      startDate: new Date("2022-03-22"),
+      endDate: new Date("2026-07-20"),
       description:
-        "Currently pursuing BSc in CSE (2020-21 session). CGPA 3.55/4.00. Actively involved in competitive programming, full-stack web development with Next.js and PostgreSQL.",
+        "Completed all coursework and final examinations; awaiting final result. CGPA 3.55/4.00. Experienced in full-stack web development, algorithm optimization, and competitive programming on Codeforces.",
     },
     {
       id: "edu-2",

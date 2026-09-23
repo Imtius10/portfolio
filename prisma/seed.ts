@@ -79,10 +79,34 @@ When I'm not coding, you'll find me reading about technology trends, exploring n
       institution: "Netrokona University",
       degree: "Bachelor of Science",
       field: "Computer Science & Engineering",
-      startDate: new Date("2023-01-01"),
-      endDate: null,
+      startDate: new Date("2022-03-22"),
+      endDate: new Date("2026-07-20"),
       description:
-        "Currently pursuing BSc in CSE. Actively involved in competitive programming, web development projects, and participating in coding contests on Codeforces.",
+        "Completed all coursework and final examinations; awaiting final result. Experienced in full-stack web development, algorithm optimization, and competitive programming on Codeforces.",
+      profileId: profile.id,
+    },
+  });
+
+  await prisma.education.create({
+    data: {
+      institution: "Bogura Government College, Rajshahi Board",
+      degree: "Higher Secondary Certificate (HSC)",
+      field: "Science",
+      startDate: new Date("2018-01-01"),
+      endDate: new Date("2020-01-01"),
+      description: "Completed HSC with GPA 5.00/5.00.",
+      profileId: profile.id,
+    },
+  });
+
+  await prisma.education.create({
+    data: {
+      institution: "Govt. Mustafabia Alia Madrasah, Bogura (Madrasah Board)",
+      degree: "Secondary School Certificate (SSC) / Dakhil",
+      field: "Science",
+      startDate: new Date("2016-01-01"),
+      endDate: new Date("2018-01-01"),
+      description: "Completed SSC/Dakhil with GPA 5.00/5.00.",
       profileId: profile.id,
     },
   });

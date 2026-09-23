@@ -1,18 +1,86 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+
+interface Edu {
+  id: string;
+  institution: string;
+  degree: string;
+  field: string | null;
+  startDate: string;
+  endDate: string | null;
+  description: string | null;
+}
+
+const FALLBACK_EDUCATION: Edu[] = [
+  {
+    id: "fallback-dev-1",
+    institution: "Netrokona University",
+    degree: "Bachelor of Science",
+    field: "Computer Science & Engineering",
+    startDate: "2022-03-22",
+    endDate: "2026-07-20",
+    description: "Exams completed — awaiting final result.",
+  },
+  {
+    id: "fallback-dev-2",
+    institution: "Bogura Government College, Rajshahi Board",
+    degree: "Higher Secondary Certificate (HSC)",
+    field: "Science",
+    startDate: "2018-01-01",
+    endDate: "2020-01-01",
+    description: "GPA: 5.00/5.00",
+  },
+  {
+    id: "fallback-dev-3",
+    institution: "Govt. Mustafabia Alia Madrasah, Bogura (Madrasah Board)",
+    degree: "Secondary School Certificate (SSC) / Dakhil",
+    field: "Science",
+    startDate: "2016-01-01",
+    endDate: "2018-01-01",
+    description: "GPA: 5.00/5.00",
+  },
+];
+
+function fmtDate(d: string) {
+  const x = new Date(d);
+  if (Number.isNaN(x.getTime())) return "";
+  if (x.getMonth() === 0 && x.getDate() === 1) return String(x.getFullYear());
+  return x.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+}
+
+function fmtRange(edu: Edu) {
+  const start = fmtDate(edu.startDate);
+  const end = edu.endDate ? fmtDate(edu.endDate) : "Present";
+  return `${start} – ${end}`;
+}
 
 export default function ResumePage() {
   const router = useRouter();
+  const [education, setEducation] = useState<Edu[]>(FALLBACK_EDUCATION);
 
   useEffect(() => {
     document.title = "Imtius Ahmad";
+
+    fetch("/api/education")
+      .then((r) => r.json())
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          const sorted = [...data].sort(
+            (a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+          );
+          setEducation(sorted);
+        }
+      })
+      .catch(() => {});
   }, []);
 
   const handleDownload = () => {
     window.print();
   };
+
+  const isBachelor = (edu: Edu) => edu.degree.toLowerCase().includes("bachelor");
 
   return (
     <>
@@ -21,13 +89,13 @@ export default function ResumePage() {
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
           <button
             onClick={() => router.push("/")}
-            className="text-slate-600 hover:text-emerald-600 transition-colors text-sm font-medium cursor-pointer"
+            className="text-slate-600 hover:text-[#1e3a8a] transition-colors text-sm font-medium cursor-pointer"
           >
             &larr; Back to Portfolio
           </button>
           <button
             onClick={handleDownload}
-            className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-emerald-600/20 cursor-pointer"
+            className="px-6 py-2.5 bg-[#1e3a8a] hover:bg-[#172c6b] text-white font-semibold rounded-lg transition-colors shadow-lg shadow-[#1e3a8a]/20 cursor-pointer"
           >
             Save as PDF
           </button>
@@ -41,7 +109,7 @@ export default function ResumePage() {
           style={{ fontFamily: "'Inter', 'Segoe UI', system-ui, sans-serif" }}
         >
           {/* Top Accent Bar */}
-          <div className="h-1.5 bg-gradient-to-r from-emerald-600 to-emerald-400"></div>
+          <div className="h-1.5 bg-gradient-to-r from-[#1e3a8a] to-[#3b5bdb]"></div>
 
           <div className="px-8 py-6">
             {/* Header */}
@@ -51,7 +119,7 @@ export default function ResumePage() {
                   <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">
                     Imtius Ahmad
                   </h1>
-                  <p className="text-base text-emerald-600 font-semibold mt-0.5">
+                  <p className="text-base text-[#1e3a8a] font-semibold mt-0.5">
                     Full Stack Developer
                   </p>
                 </div>
@@ -67,7 +135,7 @@ export default function ResumePage() {
 
             {/* Summary */}
             <section className="mb-4">
-              <h2 className="text-[10px] font-bold uppercase tracking-widest text-emerald-600 border-b-2 border-emerald-600 pb-0.5 mb-2">
+              <h2 className="text-[10px] font-bold uppercase tracking-widest text-[#1e3a8a] border-b-2 border-[#1e3a8a] pb-0.5 mb-2">
                 Professional Summary
               </h2>
               <p className="text-xs leading-relaxed text-slate-700">
@@ -77,43 +145,46 @@ export default function ResumePage() {
 
             {/* Education */}
             <section className="mb-4">
-              <h2 className="text-[10px] font-bold uppercase tracking-widest text-emerald-600 border-b-2 border-emerald-600 pb-0.5 mb-2">
+              <h2 className="text-[10px] font-bold uppercase tracking-widest text-[#1e3a8a] border-b-2 border-[#1e3a8a] pb-0.5 mb-2">
                 Education
               </h2>
 
-              <div className="mb-1.5">
-                <div className="flex justify-between items-baseline">
-                  <h3 className="text-xs font-bold text-slate-900">
-                    BSc in Computer Science & Engineering
-                  </h3>
-                  <div className="flex items-center gap-2">
-                    <span className="px-1.5 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-bold rounded">
-                      CGPA: 3.55/4.00
-                    </span>
-                    <span className="text-[10px] text-slate-500">2021 – Present</span>
+              {education.map((edu) => (
+                <div key={edu.id} className="mb-2">
+                  <div className="flex justify-between items-baseline">
+                    <h3 className="text-xs font-bold text-slate-900">
+                      {edu.degree}
+                      {edu.field ? ` in ${edu.field}` : ""}
+                    </h3>
+                    <div className="flex items-center gap-2 flex-shrink-0 ml-3">
+                      {isBachelor(edu) && (
+                        <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 border border-slate-300 text-[10px] font-bold rounded">
+                          CGPA: 3.55/4.00
+                        </span>
+                      )}
+                      <span className="text-[10px] text-slate-500">
+                        {fmtRange(edu)}
+                      </span>
+                    </div>
                   </div>
+                  <p className="text-xs text-slate-600">{edu.institution}</p>
+                  {isBachelor(edu) && (
+                    <p className="text-[11px] text-slate-500 mt-0.5">
+                      Exams completed — awaiting final result.
+                    </p>
+                  )}
+                  {edu.description && !isBachelor(edu) && (
+                    <p className="text-[11px] text-slate-500 mt-0.5">
+                      {edu.description}
+                    </p>
+                  )}
                 </div>
-                <p className="text-xs text-slate-600">Netrokona University</p>
-              </div>
-
-              <div className="mb-1.5">
-                <div className="flex justify-between items-baseline">
-                  <h3 className="text-xs font-bold text-slate-900">HSC (Science) — GPA: 5.00/5.00</h3>
-                  <span className="text-[10px] text-slate-500">2018 – 2020</span>
-                </div>
-                <p className="text-xs text-slate-600">Bogura Government College, Rajshahi Board</p>
-              </div>
-
-              <div className="flex justify-between items-baseline">
-                <h3 className="text-xs font-bold text-slate-900">SSC/Dakhil — GPA: 5.00/5.00</h3>
-                <span className="text-[10px] text-slate-500">2018</span>
-              </div>
-              <p className="text-xs text-slate-600">Govt. Mustafabia Alia Madrasah, Bogura (Madrasah Board)</p>
+              ))}
             </section>
 
             {/* Skills */}
             <section className="mb-4">
-              <h2 className="text-[10px] font-bold uppercase tracking-widest text-emerald-600 border-b-2 border-emerald-600 pb-0.5 mb-2">
+              <h2 className="text-[10px] font-bold uppercase tracking-widest text-[#1e3a8a] border-b-2 border-[#1e3a8a] pb-0.5 mb-2">
                 Technical Skills
               </h2>
               <div className="grid grid-cols-2 gap-x-6 gap-y-1 text-xs">
@@ -146,14 +217,14 @@ export default function ResumePage() {
 
             {/* Projects */}
             <section className="mb-4">
-              <h2 className="text-[10px] font-bold uppercase tracking-widest text-emerald-600 border-b-2 border-emerald-600 pb-0.5 mb-2">
+              <h2 className="text-[10px] font-bold uppercase tracking-widest text-[#1e3a8a] border-b-2 border-[#1e3a8a] pb-0.5 mb-2">
                 Projects
               </h2>
 
               <div className="mb-2">
                 <div className="flex justify-between items-baseline">
                   <h3 className="text-xs font-bold text-slate-900">BloodDonate</h3>
-                  <a href="https://bloodcare-savelife.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-emerald-600 font-semibold hover:underline">
+                  <a href="https://bloodcare-savelife.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-[#1e3a8a] font-semibold hover:underline">
                     Live Demo →
                   </a>
                 </div>
@@ -168,7 +239,7 @@ export default function ResumePage() {
               <div className="mb-2">
                 <div className="flex justify-between items-baseline">
                   <h3 className="text-xs font-bold text-slate-900">PlateShare</h3>
-                  <a href="https://teal-puffpuff-841438.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-emerald-600 font-semibold hover:underline">
+                  <a href="https://teal-puffpuff-841438.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-[#1e3a8a] font-semibold hover:underline">
                     Live Demo →
                   </a>
                 </div>
@@ -183,7 +254,7 @@ export default function ResumePage() {
               <div className="mb-2">
                 <div className="flex justify-between items-baseline">
                   <h3 className="text-xs font-bold text-slate-900">GreenNest</h3>
-                  <a href="https://endearing-dolphin-0b6714.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-emerald-600 font-semibold hover:underline">
+                  <a href="https://endearing-dolphin-0b6714.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-[#1e3a8a] font-semibold hover:underline">
                     Live Demo →
                   </a>
                 </div>
@@ -198,7 +269,7 @@ export default function ResumePage() {
               <div className="mb-2">
                 <div className="flex justify-between items-baseline">
                   <h3 className="text-xs font-bold text-slate-900">WayToCP</h3>
-                  <a href="https://github.com/Imtius10/WayToCP" target="_blank" rel="noopener noreferrer" className="text-[10px] text-emerald-600 font-semibold hover:underline">
+                  <a href="https://github.com/Imtius10/WayToCP" target="_blank" rel="noopener noreferrer" className="text-[10px] text-[#1e3a8a] font-semibold hover:underline">
                     GitHub →
                   </a>
                 </div>
@@ -213,7 +284,7 @@ export default function ResumePage() {
 
             {/* Activities & Leadership */}
             <section className="mb-4">
-              <h2 className="text-[10px] font-bold uppercase tracking-widest text-emerald-600 border-b-2 border-emerald-600 pb-0.5 mb-2">
+              <h2 className="text-[10px] font-bold uppercase tracking-widest text-[#1e3a8a] border-b-2 border-[#1e3a8a] pb-0.5 mb-2">
                 Activities & Leadership
               </h2>
               <ul className="text-xs text-slate-700 space-y-0.5 list-disc list-inside">
@@ -225,7 +296,7 @@ export default function ResumePage() {
 
             {/* Languages */}
             <section className="mb-4">
-              <h2 className="text-[10px] font-bold uppercase tracking-widest text-emerald-600 border-b-2 border-emerald-600 pb-0.5 mb-2">
+              <h2 className="text-[10px] font-bold uppercase tracking-widest text-[#1e3a8a] border-b-2 border-[#1e3a8a] pb-0.5 mb-2">
                 Languages
               </h2>
               <div className="flex gap-4 text-xs text-slate-700">
