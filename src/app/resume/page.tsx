@@ -139,7 +139,7 @@ export default function ResumePage() {
                 Professional Summary
               </h2>
               <p className="text-xs leading-relaxed text-slate-700">
-                Full-stack developer with strong problem-solving skills from competitive programming on Codeforces. Built 3+ projects using Next.js, TypeScript, PostgreSQL, and the MERN stack — including a blood donation platform with Stripe payments and a food sharing app with real-time workflows. Experienced in REST API design, database modeling with Prisma ORM, and responsive UI development. Managed university tours for 70+ students and faculty, and organized departmental tech events. Seeking a junior full-stack developer role to contribute to real-world products.
+                Full-stack developer (Next.js, TypeScript, PostgreSQL, MERN) with rigorous problem-solving habits from competitive programming on Codeforces. Built 3+ production projects — a blood-donation platform with Stripe payments, a surplus-food-sharing app with real-time workflows, and an e-learning SPA — covering REST API design, Prisma ORM data modeling, unit/API testing, and responsive UI development. Methodical and detail-oriented: comfortable with test cases, edge cases, and bug reproduction, with experience coordinating 70+ students and faculty on university tours and organizing departmental tech events. Seeking a junior full-stack developer or QA engineer role to contribute to real-world products.
               </p>
             </section>
 
