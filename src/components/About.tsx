@@ -106,11 +106,7 @@ export default function About({ profile }: AboutProps) {
                   on every feature gives me strong debugging skills that I apply to software architecture and
                   system design.
                 </p>
-                <p>
-                  I&apos;m seeking{" "}
-                  <span className="text-white light:text-slate-800 font-semibold">internship or junior full-stack roles</span>{" "}
-                  where I can contribute to meaningful projects and grow alongside experienced engineers.
-                </p>
+                
               </div>
 
               {/* Tech Stack Tags */}
