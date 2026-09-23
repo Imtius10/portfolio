@@ -33,6 +33,7 @@ When I'm not coding, you'll find me reading about technology trends, exploring n
       phone: "+8801XXXXXXXXX",
       whatsapp: "+8801XXXXXXXXX",
       resumeUrl: null,
+      lecturerResumeUrl: null,
       photoUrl: "/images/profile.jpg",
     },
   });

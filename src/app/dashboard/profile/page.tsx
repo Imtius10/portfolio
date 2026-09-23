@@ -13,6 +13,7 @@ export default function ProfilePage() {
     phone: string;
     whatsapp: string;
     resumeUrl: string;
+    lecturerResumeUrl: string;
     photoUrl: string;
   } | null>(null);
   const [dbConnected, setDbConnected] = useState(true);
@@ -36,6 +37,7 @@ export default function ProfilePage() {
             phone: data.phone || "",
             whatsapp: data.whatsapp || "",
             resumeUrl: data.resumeUrl || "",
+            lecturerResumeUrl: data.lecturerResumeUrl || "",
             photoUrl: data.photoUrl || "",
           });
         } else {
@@ -62,6 +64,7 @@ export default function ProfilePage() {
           phone: formData.get("phone"),
           whatsapp: formData.get("whatsapp"),
           resumeUrl: formData.get("resumeUrl"),
+          lecturerResumeUrl: formData.get("lecturerResumeUrl") || null,
           photoUrl: formData.get("photoUrl"),
         }),
       });
@@ -146,6 +149,10 @@ export default function ProfilePage() {
             <input name="resumeUrl" defaultValue={profile?.resumeUrl} className="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-emerald-400" placeholder="https://..." />
           </div>
           <div className="md:col-span-2">
+          <div>
+            <label className="block text-sm font-medium text-slate-400 mb-1">Lecturer Resume URL</label>
+            <input name="lecturerResumeUrl" defaultValue={profile?.lecturerResumeUrl} className="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-emerald-400" placeholder="https://..." />
+          </div>
             <label className="block text-sm font-medium text-slate-400 mb-1">Photo URL</label>
             <input name="photoUrl" defaultValue={profile?.photoUrl} className="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-emerald-400" placeholder="https://... or /images/profile.jpg" />
           </div>

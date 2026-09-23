@@ -8,6 +8,7 @@ export interface ProfileData {
   phone: string | null;
   whatsapp: string | null;
   resumeUrl: string | null;
+  lecturerResumeUrl: string | null;
   photoUrl: string | null;
   socialLinks: SocialLink[];
   skills: SkillWithCategory[];

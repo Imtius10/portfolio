@@ -17,6 +17,7 @@ model Profile {
   phone         String?
   whatsapp      String?
   resumeUrl     String?
+  lecturerResumeUrl String?
   photoUrl      String?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt

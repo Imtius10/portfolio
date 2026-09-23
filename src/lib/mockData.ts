@@ -17,6 +17,7 @@ When I'm not coding, you'll find me solving algorithmic problems, exploring new 
   phone: "+8801614742777",
   whatsapp: "+8801614742777",
   resumeUrl: null,
+  lecturerResumeUrl: null,
   photoUrl: "/images/profile.jpg",
   socialLinks: [
     { id: "sl-1", platform: "GitHub", url: "https://github.com/Imtius10", icon: null },

@@ -46,6 +46,7 @@ export async function PUT(request: Request) {
         phone: body.phone,
         whatsapp: body.whatsapp,
         resumeUrl: body.resumeUrl,
+        lecturerResumeUrl: body.lecturerResumeUrl ?? null,
         photoUrl: body.photoUrl,
       },
     });
