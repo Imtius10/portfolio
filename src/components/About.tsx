@@ -64,7 +64,7 @@ export default function About({ profile }: AboutProps) {
                 <div className="w-full space-y-3">
                   <div className="flex items-center justify-between py-2 border-b border-white/10 light:border-slate-200">
                     <span className="text-slate-400 light:text-slate-500 text-sm">Projects</span>
-                    <span className="text-white light:text-slate-800 font-semibold text-sm">3+</span>
+                    <span className="text-white light:text-slate-800 font-semibold text-sm">5+</span>
                   </div>
                   <div className="flex items-center justify-between py-2 border-b border-white/10 light:border-slate-200">
                     <span className="text-slate-400 light:text-slate-500 text-sm">CGPA</span>
@@ -96,10 +96,10 @@ export default function About({ profile }: AboutProps) {
                   <span className="text-emerald-400 light:text-emerald-600 font-medium">PostgreSQL</span>.
                 </p>
                 <p>
-                  I&apos;ve shipped <span className="text-white light:text-slate-800 font-semibold">3+ production projects</span>{" "}
-                  including a blood donation platform with Stripe payments and a food sharing system with real-time
-                  workflows. I handle the full development cycle — from database design and API development to
-                  responsive UI and deployment.
+                  I&apos;ve shipped <span className="text-white light:text-slate-800 font-semibold">5 production projects</span>{" "}
+                  including <span className="text-white light:text-slate-800 font-semibold">RentNest</span> — a full marketplace with
+                  Next.js 15, Prisma &amp; Stripe — plus a blood donation platform and food-sharing system with real-time
+                  workflows. I handle the full cycle — database design, typed API, responsive UI and Vercel deployment.
                 </p>
                 <p>
                   My habit of <span className="text-white light:text-slate-800 font-semibold">writing test cases and chasing edge cases</span>{" "}

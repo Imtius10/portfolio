@@ -138,7 +138,7 @@ export default function ResumePage() {
                 Professional Summary
               </h2>
               <p className="text-xs leading-relaxed text-slate-700">
-                Software developer with strong problem-solving skills from competitive programming and hands-on experience building 3+ full-stack projects using TypeScript, Next.js, PostgreSQL, Prisma, and MERN. Experienced in REST APIs, database design, debugging, Stripe integration, and responsive web development.</p>
+                Full-stack developer (Next.js, TypeScript, PostgreSQL, Prisma, MERN) — built 5 projects including <span className="font-semibold">RentNest</span>, a production-ready rental marketplace with role-based dashboards, Stripe Checkout, JWT auth and PostgreSQL. Strong in REST API design, database modeling, debugging and responsive UI.</p>
             </section>
 
             {/* Education */}
@@ -218,6 +218,26 @@ export default function ResumePage() {
               <h2 className="text-[10px] font-bold uppercase tracking-widest text-[#1e3a8a] border-b-2 border-[#1e3a8a] pb-0.5 mb-2">
                 Projects
               </h2>
+
+              <div className="mb-2">
+                <div className="flex justify-between items-baseline">
+                  <h3 className="text-xs font-bold text-slate-900">RentNest — Rental Property Marketplace</h3>
+                  <span className="flex gap-2">
+                    <a href="https://rentora-ecru.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[10px] text-[#1e3a8a] font-semibold hover:underline">
+                      Live Demo →
+                    </a>
+                    <a href="https://github.com/Imtius10/Rentora" target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-500 font-semibold hover:underline">
+                      GitHub →
+                    </a>
+                  </span>
+                </div>
+                <p className="text-[11px] text-slate-600 mt-0.5">
+                  Full-stack rental marketplace for Bangladesh — verified listings, rental requests, approvals & Stripe payments. Role-based dashboards for Tenant / Landlord / Admin, JWT auth (httpOnly cookies), advanced search & filter, Prisma + PostgreSQL (Neon), deployed on Vercel. API: rent-nest-api-seven.vercel.app.
+                </p>
+                <p className="text-[10px] text-slate-500 mt-0.5">
+                  <span className="font-semibold">Tech:</span> Next.js 15, React 19, TypeScript, Tailwind CSS 4, shadcn/ui, Express 5, Prisma 7, PostgreSQL, Stripe, TanStack Query, JWT
+                </p>
+              </div>
 
               <div className="mb-2">
                 <div className="flex justify-between items-baseline">

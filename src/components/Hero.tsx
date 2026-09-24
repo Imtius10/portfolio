@@ -75,7 +75,7 @@ export default function Hero({ profile }: HeroProps) {
             {/* Quick Stats - glass cards */}
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8 animate-fade-in-up opacity-0 delay-350">
               <div className="px-5 py-3 bg-white/5 light:bg-white/70 backdrop-blur-md border border-white/10 light:border-slate-200 rounded-xl text-center shadow-lg shadow-black/10">
-                <p className="text-2xl font-bold text-emerald-400 light:text-emerald-600">3+</p>
+                <p className="text-2xl font-bold text-emerald-400 light:text-emerald-600">5+</p>
                 <p className="text-xs text-slate-400 light:text-slate-500">Projects Shipped</p>
               </div>
               <div className="px-5 py-3 bg-white/5 light:bg-white/70 backdrop-blur-md border border-white/10 light:border-slate-200 rounded-xl text-center shadow-lg shadow-black/10">
