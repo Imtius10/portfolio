@@ -82,7 +82,7 @@ export default function LecturerCVPage() {
             <section className="mb-2">
               <h2 className={h2}>Career Objective</h2>
               <p className="text-[11px] leading-snug text-black">
-                Final-semester <strong>BSc in CSE (CGPA 3.55/4.00)</strong> — coursework & final examinations completed, awaiting final result. Passionate about teaching core CS through <strong>project-based learning</strong> and clear, example-driven explanations. Strong foundation in <strong>programming, DSA, OS, Networks, DBMS & software engineering</strong>; experienced in peer tutoring and mentoring. Seeking a <strong>lecturer position</strong> to contribute to academic excellence, student engagement and applied research.
+                Dedicated and academically accomplished final-semester <strong>BSc graduate in Computer Science & Engineering</strong> (CGPA: 3.55/4.00; final examinations completed, awaiting results). Seeking a <strong>lecturer position</strong> to apply a solid academic background in <strong>programming, data structures and algorithms, operating systems, computer networks, and database management systems</strong> toward fostering student development and academic success. Experienced in peer tutoring, mentoring, and delivering clear, example-driven instruction grounded in project-based pedagogy. Committed to advancing academic excellence, meaningful student engagement, and applied research within a higher-education institution.
               </p>
             </section>
 

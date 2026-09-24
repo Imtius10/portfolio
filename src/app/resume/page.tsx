@@ -121,7 +121,7 @@ export default function ResumePage() {
             <section className="mb-2">
               <h2 className={h2}>Professional Summary</h2>
               <p className="text-[11px] leading-snug text-black">
-                Full-stack developer shipping production web apps with <strong>Next.js 15, React 19, TypeScript, PostgreSQL & Prisma</strong>. Built <strong>5 projects</strong> including <strong>RentNest</strong> — a role-based rental marketplace (Tenant / Landlord / Admin) with JWT auth, Stripe Checkout + webhooks, and search/filter. Strong in REST API design, relational modeling, debugging & responsive UI. Writes test cases for every feature; comfortable from schema to Vercel deploy.
+                Results-driven <strong>Full-Stack Developer</strong> with hands-on experience designing, building, and deploying production-grade web applications using <strong>Next.js 15, React 19, TypeScript, PostgreSQL, and Prisma</strong>. Developed <strong>five end-to-end projects</strong>, including <strong>RentNest</strong>, a role-based rental marketplace with JWT authentication, Stripe payment processing, and advanced search and filtering. Skilled in RESTful API design, relational database modeling, application debugging, responsive UI development, and automated test case authoring. Proficient across the full software development lifecycle — from data schema design and backend integration to continuous deployment on Vercel.
               </p>
             </section>
 
