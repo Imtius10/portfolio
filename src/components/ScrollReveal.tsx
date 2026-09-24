@@ -1,49 +1,35 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 export default function ScrollReveal({
   children,
   className = "",
   direction = "up",
+  delay = 0,
 }: {
   children: React.ReactNode;
   className?: string;
-  direction?: "up" | "left" | "right";
+  direction?: "up" | "left" | "right" | "scale";
+  delay?: number;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  const animationClass =
-    direction === "left"
-      ? "animate-fade-in-left"
-      : direction === "right"
-      ? "animate-fade-in-right"
-      : "animate-fade-in-up";
-
+  const variants: Record<string, any> = {
+    up: { hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0 } },
+    left: { hidden: { opacity: 0, x: -28 }, visible: { opacity: 1, x: 0 } },
+    right: { hidden: { opacity: 0, x: 28 }, visible: { opacity: 1, x: 0 } },
+    scale: { hidden: { opacity: 0, scale: 0.96 }, visible: { opacity: 1, scale: 1 } },
+  };
+  const v = variants[direction] || variants.up;
   return (
-    <div
-      ref={ref}
-      className={`${className} ${
-        isVisible ? animationClass : "opacity-0"
-      }`}
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-80px" }}
+      variants={v}
+      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] as any }}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }
