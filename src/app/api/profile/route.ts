@@ -9,7 +9,7 @@ export async function GET() {
         skills: { include: { category: true } },
         education: true,
         experience: true,
-        projects: { include: { images: true } },
+        projects: { include: { images: true }, orderBy: { createdAt: "desc" } },
       },
     });
 

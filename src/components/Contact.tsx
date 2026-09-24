@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { ProfileData } from "@/lib/types";
-import { Mail, Phone, MessageCircle, Send, CheckCircle, Loader2 } from "lucide-react";
+import { Send, CheckCircle, Loader2 } from "lucide-react";
 
 interface ContactProps {
   profile: ProfileData;
 }
 
-export default function Contact({ profile }: ContactProps) {
+export default function Contact(_: ContactProps) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [formData, setFormData] = useState({
     name: "",
@@ -67,50 +67,24 @@ export default function Contact({ profile }: ContactProps) {
             </p>
 
             <div className="space-y-4">
-              <a
-                href={`mailto:${profile.email}`}
-                className="flex items-center gap-4 p-4 bg-white/5 light:bg-slate-50 backdrop-blur-md rounded-xl border border-white/10 light:border-slate-200 hover:border-emerald-400/20 transition-all duration-300 group"
-              >
-                <div className="w-12 h-12 bg-emerald-500/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-500/20 transition-colors">
-                  <Mail className="w-5 h-5 text-emerald-400 light:text-emerald-600" />
-                </div>
-                <div>
-                  <p className="text-sm text-slate-500 light:text-slate-400">Email</p>
-                  <p className="text-white light:text-slate-800">{profile.email}</p>
-                </div>
-              </a>
-
-              {profile.phone && (
-                <a
-                  href={`tel:${profile.phone}`}
-                  className="flex items-center gap-4 p-4 bg-white/5 light:bg-slate-50 backdrop-blur-md rounded-xl border border-white/10 light:border-slate-200 hover:border-emerald-400/20 transition-all duration-300 group"
-                >
-                  <div className="w-12 h-12 bg-emerald-500/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-500/20 transition-colors">
-                    <Phone className="w-5 h-5 text-emerald-400 light:text-emerald-600" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-500 light:text-slate-400">Phone</p>
-                    <p className="text-white light:text-slate-800">{profile.phone}</p>
-                  </div>
-                </a>
-              )}
-
-              {profile.whatsapp && (
-                <a
-                  href={`https://wa.me/${profile.whatsapp.replace(/[^0-9]/g, "")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 bg-white/5 light:bg-slate-50 backdrop-blur-md rounded-xl border border-white/10 light:border-slate-200 hover:border-emerald-400/20 transition-all duration-300 group"
-                >
-                  <div className="w-12 h-12 bg-emerald-500/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-500/20 transition-colors">
-                    <MessageCircle className="w-5 h-5 text-emerald-400 light:text-emerald-600" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-500 light:text-slate-400">WhatsApp</p>
-                    <p className="text-white light:text-slate-800">{profile.whatsapp}</p>
-                  </div>
-                </a>
-              )}
+              <div className="p-5 bg-white/5 light:bg-slate-50 backdrop-blur-md rounded-xl border border-white/10 light:border-slate-200">
+                <p className="text-sm text-slate-500 light:text-slate-400 mb-2">Prefer email?</p>
+                <p className="text-white light:text-slate-800 text-sm">
+                  Reach me through the form — I&apos;ll reply to your inbox directly.
+                </p>
+              </div>
+              <div className="p-5 bg-white/5 light:bg-slate-50 backdrop-blur-md rounded-xl border border-white/10 light:border-slate-200">
+                <p className="text-sm text-slate-500 light:text-slate-400 mb-2">Response time</p>
+                <p className="text-white light:text-slate-800 text-sm">
+                  Usually within 24 hours on weekdays.
+                </p>
+              </div>
+              <div className="p-5 bg-white/5 light:bg-slate-50 backdrop-blur-md rounded-xl border border-white/10 light:border-slate-200">
+                <p className="text-sm text-slate-500 light:text-slate-400 mb-2">Open to</p>
+                <p className="text-white light:text-slate-800 text-sm">
+                  Full-time roles, internships, and freelance collaboration.
+                </p>
+              </div>
             </div>
           </div>
 

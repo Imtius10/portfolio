@@ -66,6 +66,7 @@ export interface Project {
   challenges: string | null;
   improvements: string | null;
   featured: boolean;
+  createdAt?: Date | string;
   images: ProjectImage[];
 }
 

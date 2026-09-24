@@ -11,7 +11,7 @@
     "db:push": "prisma db push",
     "db:seed": "prisma db seed",
     "db:studio": "prisma studio",
-    "vercel-build": "prisma generate && npx prisma db push && next build"
+    "vercel-build": "prisma generate && npx prisma db push && npx tsx prisma/ensure-projects.ts && next build"
   },
   "prisma": {
     "seed": "npx tsx prisma/seed.ts"

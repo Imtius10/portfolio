@@ -114,6 +114,84 @@ When I'm not coding, you'll find me reading about technology trends, exploring n
 
   const projects = [
     {
+      title: "WayToCP",
+      description:
+        "A C++ practice repository covering data structures, dynamic programming, greedy, and graphs.",
+      longDescription: `WayToCP is a repository containing solutions to algorithm problems from online judges. The solutions are written in C++ and cover a wide range of algorithmic topics including data structures, dynamic programming, greedy algorithms, and more.
+
+The repository demonstrates strong problem-solving abilities and understanding of algorithms and data structures. Each solution is well-organized by problem number for easy reference and learning.`,
+      imageUrl: null,
+      liveUrl: null,
+      githubUrl: "https://github.com/Imtius10/WayToCP",
+      techStack: ["C++", "STL", "Algorithms"],
+      challenges:
+        "Solving problems within strict time and memory limits requires deep understanding of algorithm optimization. Some problems demanded creative approaches and combination of multiple algorithmic techniques.",
+      improvements:
+        "Continuously adding solutions for new problems. Plans include adding detailed explanations and complexity analysis for each solution, and creating a companion blog with tutorials on common CP patterns.",
+      featured: false,
+      createdAt: new Date("2023-01-01"),
+    },
+    {
+      title: "GreenNest",
+      description:
+        "An indoor plant care store SPA for plant lovers to browse plants, view care guides, and book consultations with experts.",
+      longDescription: `GreenNest is a single-page web application designed for indoor plant enthusiasts. Users can browse through a curated collection of plants, view detailed care guides, and book consultations with plant care experts.
+
+The application features a beautiful hero slider with Swiper.js, plant cards with ratings and pricing, and protected routes for authenticated users. Firebase authentication provides secure login with email/password and Google sign-in options.
+
+The profile management section allows users to update their display name and photo, with real-time updates reflected across the application. The minimalist design with Tailwind CSS creates an elegant browsing experience.`,
+      imageUrl: null,
+      liveUrl: "https://endearing-dolphin-0b6714.netlify.app/",
+      githubUrl: "https://github.com/Imtius10/Indoor-Plant-Care-Store",
+      techStack: ["React", "Tailwind CSS", "Firebase Auth", "Swiper.js", "React Router v6", "React Hot Toast"],
+      challenges:
+        "Implementing real-time profile updates using Firebase's updateProfile() while maintaining consistent state across components was challenging. Creating smooth SPA navigation with protected routes and proper redirects also required careful implementation.",
+      improvements:
+        "Future enhancements include adding a plant health diagnosis feature using image recognition, an e-commerce module for purchasing plants, a community forum for plant enthusiasts, and integration with IoT devices for automated plant care reminders.",
+      featured: true,
+      createdAt: new Date("2023-06-01"),
+    },
+    {
+      title: "PlateShare",
+      description:
+        "A surplus food sharing platform where people can donate extra food, request food, and help the community reduce waste.",
+      longDescription: `PlateShare is a MERN + Firebase-based platform that connects food donors with those in need, helping communities reduce food waste while fighting hunger.
+
+The platform allows users to donate surplus food, request food when needed, and manage donations through an intuitive dashboard. Firebase handles authentication (email/password + Google sign-in), while the backend uses Node.js, Express, and MongoDB Atlas for data persistence.
+
+Features include food request management with accept/reject workflows, image uploads via imgbb, and beautiful animations using AOS and Framer Motion. The application is fully responsive and works smoothly on all devices.`,
+      imageUrl: null,
+      liveUrl: "https://teal-puffpuff-841438.netlify.app/",
+      githubUrl: "https://github.com/Imtius10/PlateShare",
+      techStack: ["React", "Tailwind CSS", "DaisyUI", "Node.js", "Express.js", "MongoDB", "Firebase Auth", "Framer Motion"],
+      challenges:
+        "Building the food request workflow with accept/reject status management and real-time updates was complex. Ensuring data consistency when multiple users interacted with the same food listing required careful handling of concurrent operations.",
+      improvements:
+        "Plans include adding a location-based food finder using geolocation, implementing push notifications for new food requests, adding a rating system for donors, and building an admin dashboard for analytics.",
+      featured: true,
+      createdAt: new Date("2023-11-01"),
+    },
+    {
+      title: "BloodDonate",
+      description:
+        "A modern blood donation platform connecting donors with recipients through a clean, responsive interface for life-saving activities.",
+      longDescription: `BloodDonate is a comprehensive web application designed to bridge the gap between blood donors and recipients. The platform focuses on accessibility, performance, and smooth user experience to support life-saving blood donation activities.
+
+The application features secure Firebase authentication, role-based dashboards for donors and admins, and a powerful search system to find donors by blood group, district, and upazila. The UI is built with React and enhanced with Framer Motion animations for a smooth experience.
+
+Stripe payment integration allows users to support the cause financially, while the responsive design ensures the platform works seamlessly across all devices.`,
+      imageUrl: null,
+      liveUrl: "https://bloodcare-savelife.netlify.app/",
+      githubUrl: "https://github.com/Imtius10/Blood-donation-client",
+      techStack: ["React", "Tailwind CSS", "Framer Motion", "Firebase Auth", "MongoDB", "Express.js", "Stripe"],
+      challenges:
+        "Integrating Stripe payment gateway securely and implementing role-based access control with Firebase Authentication were significant challenges. Managing complex state for donor search filters across multiple districts also required careful architecture.",
+      improvements:
+        "Future plans include adding real-time blood availability tracking, SMS notifications for urgent requests, a mobile app version, and integration with local blood banks for automated inventory management.",
+      featured: true,
+      createdAt: new Date("2024-03-01"),
+    },
+    {
       title: "RentNest",
       description:
         "Full-stack rental property marketplace for Bangladesh — browse verified listings, submit rental requests, and manage approvals & payments in one seamless platform.",
@@ -152,104 +230,7 @@ Live: rentora-ecru.vercel.app · API: rent-nest-api-seven.vercel.app · GitHub: 
       improvements:
         "Add real-time notifications for request updates, richer analytics dashboards, saved-search alerts, and automated rent reminders. Expand image optimization (Next Image), add E2E tests for checkout/webhook, and improve accessibility & lighthouse scores.",
       featured: true,
-    },
-    {
-      title: "BloodDonate",
-      description:
-        "A modern blood donation platform connecting donors with recipients through a clean, responsive interface for life-saving activities.",
-      longDescription: `BloodDonate is a comprehensive web application designed to bridge the gap between blood donors and recipients. The platform focuses on accessibility, performance, and smooth user experience to support life-saving blood donation activities.
-
-The application features secure Firebase authentication, role-based dashboards for donors and admins, and a powerful search system to find donors by blood group, district, and upazila. The UI is built with React and enhanced with Framer Motion animations for a smooth experience.
-
-Stripe payment integration allows users to support the cause financially, while the responsive design ensures the platform works seamlessly across all devices.`,
-      imageUrl: null,
-      liveUrl: "https://bloodcare-savelife.netlify.app/",
-      githubUrl: "https://github.com/Imtius10/Blood-donation-client",
-      techStack: [
-        "React",
-        "Tailwind CSS",
-        "Framer Motion",
-        "Firebase Auth",
-        "MongoDB",
-        "Express.js",
-        "Stripe",
-      ],
-      challenges:
-        "Integrating Stripe payment gateway securely and implementing role-based access control with Firebase Authentication were significant challenges. Managing complex state for donor search filters across multiple districts also required careful architecture.",
-      improvements:
-        "Future plans include adding real-time blood availability tracking, SMS notifications for urgent requests, a mobile app version, and integration with local blood banks for automated inventory management.",
-      featured: true,
-    },
-    {
-      title: "PlateShare",
-      description:
-        "A surplus food sharing platform where people can donate extra food, request food, and help the community reduce waste.",
-      longDescription: `PlateShare is a MERN + Firebase-based platform that connects food donors with those in need, helping communities reduce food waste while fighting hunger.
-
-The platform allows users to donate surplus food, request food when needed, and manage donations through an intuitive dashboard. Firebase handles authentication (email/password + Google sign-in), while the backend uses Node.js, Express, and MongoDB Atlas for data persistence.
-
-Features include food request management with accept/reject workflows, image uploads via imgbb, and beautiful animations using AOS and Framer Motion. The application is fully responsive and works smoothly on all devices.`,
-      imageUrl: null,
-      liveUrl: "https://teal-puffpuff-841438.netlify.app/",
-      githubUrl: "https://github.com/Imtius10/PlateShare",
-      techStack: [
-        "React",
-        "Tailwind CSS",
-        "DaisyUI",
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "Firebase Auth",
-        "Framer Motion",
-      ],
-      challenges:
-        "Building the food request workflow with accept/reject status management and real-time updates was complex. Ensuring data consistency when multiple users interacted with the same food listing required careful handling of concurrent operations.",
-      improvements:
-        "Plans include adding a location-based food finder using geolocation, implementing push notifications for new food requests, adding a rating system for donors, and building an admin dashboard for analytics.",
-      featured: true,
-    },
-    {
-      title: "GreenNest",
-      description:
-        "An indoor plant care store SPA for plant lovers to browse plants, view care guides, and book consultations with experts.",
-      longDescription: `GreenNest is a single-page web application designed for indoor plant enthusiasts. Users can browse through a curated collection of plants, view detailed care guides, and book consultations with plant care experts.
-
-The application features a beautiful hero slider with Swiper.js, plant cards with ratings and pricing, and protected routes for authenticated users. Firebase authentication provides secure login with email/password and Google sign-in options.
-
-The profile management section allows users to update their display name and photo, with real-time updates reflected across the application. The minimalist design with Tailwind CSS creates an elegant browsing experience.`,
-      imageUrl: null,
-      liveUrl: "https://endearing-dolphin-0b6714.netlify.app/",
-      githubUrl: "https://github.com/Imtius10/Indoor-Plant-Care-Store",
-      techStack: [
-        "React",
-        "Tailwind CSS",
-        "Firebase Auth",
-        "Swiper.js",
-        "React Router v6",
-        "React Hot Toast",
-      ],
-      challenges:
-        "Implementing real-time profile updates using Firebase's updateProfile() while maintaining consistent state across components was challenging. Creating smooth SPA navigation with protected routes and proper redirects also required careful implementation.",
-      improvements:
-        "Future enhancements include adding a plant health diagnosis feature using image recognition, an e-commerce module for purchasing plants, a community forum for plant enthusiasts, and integration with IoT devices for automated plant care reminders.",
-      featured: true,
-    },
-    {
-      title: "WayToCP",
-      description:
-        "A C++ practice repository covering data structures, dynamic programming, greedy, and graphs.",
-      longDescription: `WayToCP is a repository containing solutions to algorithm problems from online judges. The solutions are written in C++ and cover a wide range of algorithmic topics including data structures, dynamic programming, greedy algorithms, and more.
-
-The repository demonstrates strong problem-solving abilities and understanding of algorithms and data structures. Each solution is well-organized by problem number for easy reference and learning.`,
-      imageUrl: null,
-      liveUrl: null,
-      githubUrl: "https://github.com/Imtius10/WayToCP",
-      techStack: ["C++", "STL", "Algorithms"],
-      challenges:
-        "Solving problems within strict time and memory limits requires deep understanding of algorithm optimization. Some problems demanded creative approaches and combination of multiple algorithmic techniques.",
-      improvements:
-        "Continuously adding solutions for new problems. Plans include adding detailed explanations and complexity analysis for each solution, and creating a companion blog with tutorials on common CP patterns.",
-      featured: false,
+      createdAt: new Date("2026-09-20"),
     },
   ];
 

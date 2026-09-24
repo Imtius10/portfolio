@@ -116,14 +116,14 @@ export default function ResumePage() {
             </header>
             <p className="sr-only">Email: h.imtius10@gmail.com | Phone: +8801614742777 | WhatsApp: +8801614742777 | LinkedIn: linkedin.com/in/imtius10 | GitHub: github.com/Imtius10 | Location: Bogura, Bangladesh</p>
 
-            <section className="mb-3">
+            <section className="mb-2">
               <h2 className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#1e3a8a] border-b-2 border-[#1e3a8a] pb-0.5 mb-2">Professional Summary</h2>
               <p className="text-[11px] leading-relaxed text-slate-700">
                 <span className="font-semibold text-slate-900">Full-stack developer</span> focused on shipping production-ready web apps with <span className="font-semibold">Next.js 15, React 19, TypeScript, PostgreSQL & Prisma</span>. Built <span className="font-semibold">5 projects</span> including <span className="font-semibold text-[#1e3a8a]">RentNest</span> — a role-based rental marketplace (Tenant / Landlord / Admin) with JWT auth (httpOnly cookies), Stripe Checkout + webhooks, and advanced search/filter. Strong in <span className="font-semibold">REST API design, relational data modeling, debugging & responsive UI</span>. Writes test cases for every feature; comfortable from schema to deploy on <span className="font-semibold">Vercel</span>.
               </p>
             </section>
 
-            <section className="mb-3">
+            <section className="mb-2">
               <h2 className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#1e3a8a] border-b-2 border-[#1e3a8a] pb-0.5 mb-2">Education</h2>
               {education.map((edu) => (
                 <div key={edu.id} className="mb-1.5">
@@ -140,7 +140,7 @@ export default function ResumePage() {
               ))}
             </section>
 
-            <section className="mb-3">
+            <section className="mb-2">
               <h2 className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#1e3a8a] border-b-2 border-[#1e3a8a] pb-0.5 mb-2">Technical Skills</h2>
               <div className="grid grid-cols-2 gap-x-6 gap-y-1 text-[11px]">
                 <div><span className="font-bold text-slate-900">Frontend:</span> <span className="text-slate-700">React, Next.js 15, TypeScript, Tailwind CSS 4, shadcn/ui, TanStack Query</span></div>
@@ -152,12 +152,12 @@ export default function ResumePage() {
               </div>
             </section>
 
-            <section className="mb-3">
+            <section className="mb-2">
               <h2 className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#1e3a8a] border-b-2 border-[#1e3a8a] pb-0.5 mb-2">Projects</h2>
 
-              <div className="mb-2.5">
+              <div className="mb-2">
                 <div className="flex justify-between items-baseline gap-2">
-                  <h3 className="text-[11px] font-bold text-slate-900">RentNest — Rental Property Marketplace <span className="ml-1 px-1.5 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded text-[10px] font-bold uppercase tracking-widest align-middle">Flagship</span></h3>
+                  <h3 className="text-[11px] font-bold text-slate-900">RentNest — Rental Property Marketplace</h3>
                   <span className="flex gap-2 flex-shrink-0">
                     <a href="https://rentora-ecru.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[10px] text-[#1e3a8a] font-bold hover:underline">Live →</a>
                     <a href="https://github.com/Imtius10/Rentora" target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-500 font-bold hover:underline">GitHub →</a>
@@ -205,7 +205,7 @@ export default function ResumePage() {
               <p className="text-[10px] text-slate-500 leading-snug">C++ solutions for DP, greedy, graphs & data structures — keeps problem-solving and debugging sharp.</p>
             </section>
 
-            <section className="mb-3">
+            <section className="mb-2">
               <h2 className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#1e3a8a] border-b-2 border-[#1e3a8a] pb-0.5 mb-2">Activities & Leadership</h2>
               <ul className="text-[11px] text-slate-700 space-y-0.5 list-disc list-inside leading-snug">
                 <li><span className="font-semibold">University Tour Manager</span> — Logistics, budgeting & coordination for 70+ students & faculty (multi-day tours)</li>
@@ -223,8 +223,6 @@ export default function ResumePage() {
                 <span><span className="font-bold">Urdu</span> — Basic</span>
               </div>
             </section>
-
-            <p className="text-[10px] text-slate-400 text-center mt-4 border-t border-slate-200 pt-2">References available on request · Last updated Sep 2026 · PDF generated from imtius.dev/resume</p>
           </div>
         </div>
       </div>

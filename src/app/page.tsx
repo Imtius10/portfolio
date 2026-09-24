@@ -25,7 +25,7 @@ async function getProfile() {
         skills: { include: { category: true } },
         education: true,
         experience: true,
-        projects: { include: { images: true } },
+        projects: { include: { images: true }, orderBy: { createdAt: "desc" } },
       },
     });
     return profile;
@@ -38,6 +38,10 @@ async function getProfile() {
 export default async function Home() {
   const profile = await getProfile();
   const data = profile || mockProfile;
+  const projects = [...data.projects].sort(
+    (a, b) =>
+      new Date(b.createdAt || 0).getTime() - new Date(a.createdAt || 0).getTime()
+  );
 
   return (
     <main className="min-h-screen bg-slate-950 dark:bg-slate-950 light:bg-slate-50 transition-colors">
@@ -59,7 +63,7 @@ export default async function Home() {
         <Experience experience={data.experience} />
       </ScrollReveal>
       <ScrollReveal>
-        <Projects projects={data.projects} />
+        <Projects projects={projects} />
       </ScrollReveal>
       <ScrollReveal>
         <Contact profile={data} />

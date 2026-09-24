@@ -6,7 +6,6 @@ import {
   BookOpen,
   GraduationCap,
   Mail,
-  Phone,
   ExternalLink,
   ChevronDown,
   Code,
@@ -272,16 +271,9 @@ export default function LecturerPage() {
             >
               <Mail className="w-5 h-5" />
               Contact Me
-            </a>
-          </div>
+            </a>          </div>
 
           <div className="flex gap-3 justify-center animate-fade-in-up opacity-0 delay-500">
-            <a
-              href="mailto:h.imtius10@gmail.com"
-              className="p-3.5 bg-white/5 backdrop-blur-md hover:bg-blue-500/20 border border-white/10 hover:border-blue-400/30 rounded-xl text-slate-400 hover:text-blue-400 transition-all duration-300 hover:scale-110"
-            >
-              <Mail className="w-5 h-5" />
-            </a>
             <a
               href="https://linkedin.com/in/imtius10"
               target="_blank"
@@ -520,26 +512,6 @@ export default function LecturerPage() {
             <div className="space-y-6">
               <div className="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-md rounded-xl border border-white/10">
                 <div className="p-3 bg-blue-500/20 rounded-xl">
-                  <Mail className="w-5 h-5 text-blue-400" />
-                </div>
-                <div>
-                  <p className="text-white font-semibold">Email</p>
-                  <p className="text-slate-400 text-sm">h.imtius10@gmail.com</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-md rounded-xl border border-white/10">
-                <div className="p-3 bg-blue-500/20 rounded-xl">
-                  <Phone className="w-5 h-5 text-blue-400" />
-                </div>
-                <div>
-                  <p className="text-white font-semibold">Phone</p>
-                  <p className="text-slate-400 text-sm">+8801614742777</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-md rounded-xl border border-white/10">
-                <div className="p-3 bg-blue-500/20 rounded-xl">
                   <GraduationCap className="w-5 h-5 text-blue-400" />
                 </div>
                 <div>
@@ -547,17 +519,29 @@ export default function LecturerPage() {
                   <p className="text-slate-400 text-sm">Netrokona University, Bangladesh</p>
                 </div>
               </div>
+
+              <div className="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-md rounded-xl border border-white/10">
+                <div className="p-3 bg-blue-500/20 rounded-xl">
+                  <Mail className="w-5 h-5 text-blue-400" />
+                </div>
+                <div>
+                  <p className="text-white font-semibold">Preferred contact</p>
+                  <p className="text-slate-400 text-sm">Use LinkedIn or the download CV link — I&apos;ll respond quickly.</p>
+                </div>
+              </div>
             </div>
 
             {/* Quick Actions */}
             <div className="space-y-4">
               <a
-                href="mailto:h.imtius10@gmail.com"
+                href="https://linkedin.com/in/imtius10"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block p-6 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 hover:border-blue-400/30 hover:bg-blue-500/5 transition-all text-center"
               >
-                <Mail className="w-8 h-8 text-blue-400 mx-auto mb-3" />
-                <p className="text-white font-semibold">Send an Email</p>
-                <p className="text-slate-400 text-sm mt-1">h.imtius10@gmail.com</p>
+                <ExternalLink className="w-8 h-8 text-blue-400 mx-auto mb-3" />
+                <p className="text-white font-semibold">Connect on LinkedIn</p>
+                <p className="text-slate-400 text-sm mt-1">Best way to reach me</p>
               </a>
 
               <a

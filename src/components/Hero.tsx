@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ProfileData } from "@/lib/types";
 import TypeWriter from "./TypeWriter";
-import { Download, ExternalLink, FileText, Mail, ArrowRight, Sparkles } from "lucide-react";
+import { Download, ExternalLink, FileText, Mail, ArrowRight } from "lucide-react";
 import { GithubIcon, LinkedinIcon, FacebookIcon, InstagramIcon, TwitterIcon } from "./SocialIcons";
 import { useRef } from "react";
 
@@ -108,17 +108,12 @@ export default function Hero({ profile }: HeroProps) {
 
           <motion.div style={{ rotateX: rx as unknown as string, rotateY: ry as unknown as string, transformPerspective: 900 } as any} className="flex-shrink-0 relative" initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
             <div className="relative">
-              <div className="absolute -inset-8 bg-gradient-to-br from-emerald-500/20 via-teal-500/15 to-blue-500/20 blur-[36px] rounded-[2.2rem]" />
-              <div className="relative w-72 h-72 sm:w-[22rem] sm:h-[22rem] rounded-[1.9rem] overflow-hidden border border-white/15 bg-white/[0.04] backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+              <div className="relative w-72 h-72 sm:w-[22rem] sm:h-[22rem] rounded-2xl overflow-hidden border border-white/15 bg-white/[0.04] shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={profile.photoUrl || ""} alt={profile.name} className="w-full h-full object-cover" onError={(e) => {
                   const t = e.target as HTMLImageElement; t.style.display = "none";
                   const p = t.parentElement; if (p && !p.querySelector(".fallback-avatar")) { const f = document.createElement("div"); f.className = "fallback-avatar w-full h-full bg-gradient-to-br from-emerald-400 to-blue-500 flex items-center justify-center"; f.innerHTML = `<span class="text-6xl font-black text-white">${profile.name.charAt(0)}</span>`; p.appendChild(f); }
                 }} />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent pointer-events-none" />
-              </div>
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-2 bg-white text-slate-900 rounded-full text-xs font-bold shadow-[0_10px_24px_rgba(0,0,0,0.35)] flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-emerald-600" /> Premium Product Engineer
               </div>
             </div>
           </motion.div>

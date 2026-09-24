@@ -13,7 +13,7 @@ async function getData(): Promise<ProfileData> {
     const profile = await prisma.profile.findFirst({
       include: {
         socialLinks: true,
-        projects: { include: { images: true } },
+        projects: { include: { images: true }, orderBy: { createdAt: "desc" } },
         skills: { include: { category: true } },
         education: true,
         experience: true,
@@ -28,6 +28,10 @@ async function getData(): Promise<ProfileData> {
 
 export default async function ProjectsPage() {
   const data = await getData();
+  const projects = [...data.projects].sort(
+    (a, b) =>
+      new Date(b.createdAt || 0).getTime() - new Date(a.createdAt || 0).getTime()
+  );
 
   return (
     <main className="min-h-screen bg-slate-950">
@@ -42,7 +46,7 @@ export default async function ProjectsPage() {
           </p>
         </div>
       </div>
-      <ProjectsComponent projects={data.projects} showAll />
+      <ProjectsComponent projects={projects} showAll />
       <Footer profile={data} />
       <BackToTop />
     </main>

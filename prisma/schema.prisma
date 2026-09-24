@@ -90,6 +90,7 @@ model Project {
   challenges      String?
   improvements    String?
   featured        Boolean      @default(false)
+  createdAt       DateTime     @default(now())
   profileId       String
   profile         Profile      @relation(fields: [profileId], references: [id], onDelete: Cascade)
   images          ProjectImage[]

@@ -127,7 +127,7 @@ export default function LecturerCVPage() {
               <div className="space-y-2">
                 <div>
                   <div className="flex justify-between items-baseline gap-2">
-                    <span className="text-[11px] font-bold text-slate-900">RentNest — Full-Stack Rental Marketplace <span className="ml-1 px-1 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded text-[10px] font-bold uppercase tracking-widest">Flagship</span></span>
+                    <span className="text-[11px] font-bold text-slate-900">RentNest — Full-Stack Rental Marketplace</span>
                     <span className="flex gap-2 flex-shrink-0"><a href="https://rentora-ecru.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[10px] text-[#1e3a8a] font-bold hover:underline">Live →</a><a href="https://github.com/Imtius10/Rentora" target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-500 font-bold hover:underline">GitHub →</a></span>
                   </div>
                   <p className="text-[11px] text-slate-600 mt-0.5 leading-snug">End-to-end software engineering case study: requirements, Prisma + PostgreSQL schema, JWT (httpOnly cookies) auth via Next.js rewrites, Stripe Checkout + webhooks, role-based dashboards (Tenant/Landlord/Admin) and deployment on Vercel. Ideal for teaching <span className="font-semibold">DB design, REST, auth & payments</span>.</p>
@@ -183,7 +183,6 @@ export default function LecturerCVPage() {
               </div>
             </section>
 
-            <p className="text-[10px] text-slate-400 text-center mt-4 border-t border-slate-200 pt-2">References available on request · Last updated Sep 2026 · imtius.dev/cv/lecturer</p>
           </div>
         </div>
       </div>
