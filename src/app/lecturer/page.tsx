@@ -93,6 +93,13 @@ const researchInterests = [
 
 const projects = [
   {
+    title: "RentNest — Rental Marketplace",
+    description:
+      "Full-stack marketplace (Rentora) — role-based dashboards for Tenant / Landlord / Admin, JWT httpOnly auth, Stripe Checkout, advanced search & Prisma + PostgreSQL. Built as a software engineering teaching case study.",
+    tech: "Next.js 15, Prisma 7, PostgreSQL, Stripe, Vercel",
+    link: "https://rentora-ecru.vercel.app",
+  },
+  {
     title: "WayToCP",
     description:
       "A curated C++ algorithm practice repository covering DP, Greedy, Graph Algorithms, and advanced Data Structures — also used as a teaching resource for peer mentoring.",
