@@ -129,27 +129,27 @@ export default function LecturerCVPage() {
               <div className="space-y-1.5">
                 <div>
                   <span className="text-[11px] font-bold text-black">RentNest — Full-Stack Rental Marketplace</span>
-                  <p className="text-[9.5px] text-slate-700 leading-snug break-all">
-                    <a href="https://github.com/Imtius10/Rentora" target="_blank" rel="noopener noreferrer" className="underline decoration-slate-300 underline-offset-2">github.com/Imtius10/Rentora</a>
+                  <p className="text-[9.5px] leading-snug break-all">
+                    <a href="https://github.com/Imtius10/Rentora" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black">github.com/Imtius10/Rentora</a>
                     <span className="mx-1 text-slate-400">|</span>
-                    <a href="https://rentora-ecru.vercel.app" target="_blank" rel="noopener noreferrer" className="underline decoration-slate-300 underline-offset-2">rentora-ecru.vercel.app</a>
+                    <a href="https://rentora-ecru.vercel.app" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black">rentora-ecru.vercel.app</a>
                   </p>
                   <p className="text-[11px] text-black leading-snug">Software engineering case study: Prisma + PostgreSQL schema, JWT (httpOnly cookies) auth, Stripe Checkout + webhooks, role-based dashboards (Tenant/Landlord/Admin), Vercel deploy. Ideal for teaching <strong>DB design, REST, auth & payments</strong>.</p>
                   <p className="text-[10px] text-slate-600"><strong>Stack:</strong> Next.js 15, React 19, TypeScript, Prisma 7, PostgreSQL, Stripe, TanStack Query</p>
                 </div>
                 <div>
                   <span className="text-[11px] font-bold text-black">WayToCP — Algorithm Practice Repository</span>
-                  <p className="text-[9.5px] text-slate-700 leading-snug break-all">
-                    <a href="https://github.com/Imtius10/WayToCP" target="_blank" rel="noopener noreferrer" className="underline decoration-slate-300 underline-offset-2">github.com/Imtius10/WayToCP</a>
+                  <p className="text-[9.5px] leading-snug break-all">
+                    <a href="https://github.com/Imtius10/WayToCP" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black">github.com/Imtius10/WayToCP</a>
                   </p>
                   <p className="text-[11px] text-black leading-snug">C++ collection for DP, greedy, graphs & data structures; used as peer-teaching material for complexity analysis and problem decomposition.</p>
                 </div>
                 <div>
                   <span className="text-[11px] font-bold text-black">BloodDonate / PlateShare — MERN Case Studies</span>
-                  <p className="text-[9.5px] text-slate-700 leading-snug break-all">
-                    <a href="https://bloodcare-savelife.netlify.app/" target="_blank" rel="noopener noreferrer" className="underline decoration-slate-300 underline-offset-2">bloodcare-savelife.netlify.app</a>
+                  <p className="text-[9.5px] leading-snug break-all">
+                    <a href="https://bloodcare-savelife.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black">bloodcare-savelife.netlify.app</a>
                     <span className="mx-1 text-slate-400">|</span>
-                    <a href="https://teal-puffpuff-841438.netlify.app/" target="_blank" rel="noopener noreferrer" className="underline decoration-slate-300 underline-offset-2">teal-puffpuff-841438.netlify.app</a>
+                    <a href="https://teal-puffpuff-841438.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black">teal-puffpuff-841438.netlify.app</a>
                   </p>
                   <p className="text-[11px] text-black leading-snug">Illustrate OOP, workflow design and real-time data management — used to teach MVC, Firebase auth and responsive UI patterns.</p>
                 </div>
