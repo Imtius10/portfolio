@@ -67,7 +67,7 @@ export default function LecturerCVPage() {
                 <div>
                   <h1 className="text-[26px] font-bold text-black leading-none">Imtius Ahmad</h1>
                   <p className="text-[12px] font-bold mt-1">Lecturer in Computer Science & Engineering</p>
-                  <p className="text-[10px] text-slate-600 mt-0.5">BSc CSE (Netrokona University, CGPA 3.55/4.00 — exams completed, awaiting final result)</p>
+                  <p className="text-[10px] text-slate-600 mt-0.5">Bogura, Bangladesh · BSc CSE (Netrokona University, CGPA 3.55/4.00 — exams completed, awaiting final result)</p>
                 </div>
                 <div className="text-right text-[11px] text-black space-y-0.5 leading-tight">
                   <p><a href="mailto:h.imtius10@gmail.com">h.imtius10@gmail.com</a></p>
@@ -77,7 +77,7 @@ export default function LecturerCVPage() {
                 </div>
               </div>
             </header>
-            <p className="sr-only">Email: h.imtius10@gmail.com | Phone: +8801614742777 | LinkedIn: linkedin.com/in/imtius10 | GitHub: github.com/Imtius10</p>
+            <p className="sr-only">Imtius Ahmad, Bogura Bangladesh. Email: h.imtius10@gmail.com | Phone: +8801614742777 | LinkedIn: linkedin.com/in/imtius10 | GitHub: github.com/Imtius10</p>
 
             <section className="mb-2">
               <h2 className={h2}>Career Objective</h2>
@@ -105,7 +105,7 @@ export default function LecturerCVPage() {
 
             <section className="mb-2">
               <h2 className={h2}>Teaching Areas</h2>
-              <div className="grid grid-cols-2 gap-x-5 gap-y-0.5 text-[11px] leading-snug">
+              <div className="grid grid-cols-2 print:grid-cols-1 gap-x-5 gap-y-0.5 text-[11px] leading-snug">
                 <p><strong>Programming:</strong> C, C++, Java, Python, JavaScript, TypeScript</p>
                 <p><strong>Core CS:</strong> Data Structures, Algorithms, OS, Networks, DBMS</p>
                 <p><strong>Theory:</strong> Automata Theory, Compiler Design, Complexity Analysis</p>
@@ -130,9 +130,9 @@ export default function LecturerCVPage() {
                 <div>
                   <span className="text-[11px] font-bold text-black">RentNest — Full-Stack Rental Marketplace</span>
                   <p className="text-[9.5px] leading-snug break-all">
-                    <a href="https://github.com/Imtius10/Rentora" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black">github.com/Imtius10/Rentora</a>
+                    <a href="https://github.com/Imtius10/Rentora" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black print:decoration-black">github.com/Imtius10/Rentora</a>
                     <span className="mx-1 text-slate-400">|</span>
-                    <a href="https://rentora-ecru.vercel.app" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black">rentora-ecru.vercel.app</a>
+                    <a href="https://rentora-ecru.vercel.app" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black print:decoration-black">rentora-ecru.vercel.app</a>
                   </p>
                   <p className="text-[11px] text-black leading-snug">Software engineering case study: Prisma + PostgreSQL schema, JWT (httpOnly cookies) auth, Stripe Checkout + webhooks, role-based dashboards (Tenant/Landlord/Admin), Vercel deploy. Ideal for teaching <strong>DB design, REST, auth & payments</strong>.</p>
                   <p className="text-[10px] text-slate-600"><strong>Stack:</strong> Next.js 15, React 19, TypeScript, Prisma 7, PostgreSQL, Stripe, TanStack Query</p>
@@ -140,16 +140,16 @@ export default function LecturerCVPage() {
                 <div>
                   <span className="text-[11px] font-bold text-black">WayToCP — Algorithm Practice Repository</span>
                   <p className="text-[9.5px] leading-snug break-all">
-                    <a href="https://github.com/Imtius10/WayToCP" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black">github.com/Imtius10/WayToCP</a>
+                    <a href="https://github.com/Imtius10/WayToCP" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black print:decoration-black">github.com/Imtius10/WayToCP</a>
                   </p>
                   <p className="text-[11px] text-black leading-snug">C++ collection for DP, greedy, graphs & data structures; used as peer-teaching material for complexity analysis and problem decomposition.</p>
                 </div>
                 <div>
                   <span className="text-[11px] font-bold text-black">BloodDonate / PlateShare — MERN Case Studies</span>
                   <p className="text-[9.5px] leading-snug break-all">
-                    <a href="https://bloodcare-savelife.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black">bloodcare-savelife.netlify.app</a>
+                    <a href="https://bloodcare-savelife.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black print:decoration-black">bloodcare-savelife.netlify.app</a>
                     <span className="mx-1 text-slate-400">|</span>
-                    <a href="https://teal-puffpuff-841438.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black">teal-puffpuff-841438.netlify.app</a>
+                    <a href="https://teal-puffpuff-841438.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black print:decoration-black">teal-puffpuff-841438.netlify.app</a>
                   </p>
                   <p className="text-[11px] text-black leading-snug">Illustrate OOP, workflow design and real-time data management — used to teach MVC, Firebase auth and responsive UI patterns.</p>
                 </div>
@@ -157,7 +157,7 @@ export default function LecturerCVPage() {
             </section>
 
             <section className="mb-1.5">
-              <div className="grid grid-cols-2 gap-x-5">
+              <div className="grid grid-cols-2 print:grid-cols-1 gap-x-5">
                 <div>
                   <h2 className={h2}>Technical Skills</h2>
                   <div className="space-y-0.5 text-[11px] leading-snug">

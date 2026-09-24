@@ -106,7 +106,7 @@ export default function ResumePage() {
                 <div>
                   <h1 className="text-[26px] font-bold text-black leading-none">Imtius Ahmad</h1>
                   <p className="text-[12px] font-bold mt-1">Full Stack Developer · Next.js · TypeScript · PostgreSQL</p>
-                  <p className="text-[10px] text-slate-600 mt-0.5">Available for full-time · Remote / On-site · Open to relocation</p>
+                  <p className="text-[10px] text-slate-600 mt-0.5">Bogura, Bangladesh · Available for full-time · Remote / On-site · Open to relocation</p>
                 </div>
                 <div className="text-right text-[11px] text-black space-y-0.5 leading-tight">
                   <p><a href="mailto:h.imtius10@gmail.com">h.imtius10@gmail.com</a></p>
@@ -116,7 +116,7 @@ export default function ResumePage() {
                 </div>
               </div>
             </header>
-            <p className="sr-only">Email: h.imtius10@gmail.com | Phone: +8801614742777 | LinkedIn: linkedin.com/in/imtius10 | GitHub: github.com/Imtius10</p>
+            <p className="sr-only">Imtius Ahmad, Bogura Bangladesh. Email: h.imtius10@gmail.com | Phone: +8801614742777 | LinkedIn: linkedin.com/in/imtius10 | GitHub: github.com/Imtius10</p>
 
             <section className="mb-2">
               <h2 className={h2}>Professional Summary</h2>
@@ -144,7 +144,7 @@ export default function ResumePage() {
 
             <section className="mb-2">
               <h2 className={h2}>Technical Skills</h2>
-              <div className="grid grid-cols-2 gap-x-5 gap-y-0.5 text-[11px] leading-snug">
+              <div className="grid grid-cols-2 print:grid-cols-1 gap-x-5 gap-y-0.5 text-[11px] leading-snug">
                 <div><strong>Frontend:</strong> React, Next.js 15, TypeScript, Tailwind CSS 4, shadcn/ui, TanStack Query</div>
                 <div><strong>Backend:</strong> Node.js, Express 5, REST API, JWT (access+refresh), Stripe Checkout</div>
                 <div><strong>Database:</strong> PostgreSQL (Neon), Prisma 7, MongoDB, Firebase</div>
@@ -162,9 +162,9 @@ export default function ResumePage() {
                   <h3 className="text-[11px] font-bold text-black">RentNest — Rental Property Marketplace</h3>
                 </div>
                 <p className="text-[9.5px] leading-snug break-all">
-                  <a href="https://github.com/Imtius10/Rentora" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black">github.com/Imtius10/Rentora</a>
+                  <a href="https://github.com/Imtius10/Rentora" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black print:decoration-black">github.com/Imtius10/Rentora</a>
                   <span className="mx-1 text-slate-400">|</span>
-                  <a href="https://rentora-ecru.vercel.app" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black">rentora-ecru.vercel.app</a>
+                  <a href="https://rentora-ecru.vercel.app" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black print:decoration-black">rentora-ecru.vercel.app</a>
                 </p>
                 <p className="text-[11px] leading-snug text-black">Role-based marketplace (Tenant / Landlord / Admin): listings, rental requests, approvals, Stripe payments, reviews & admin moderation. JWT auth with httpOnly cookies + Next.js rewrites proxy; Prisma + PostgreSQL with search/filter by location, price & property type.</p>
                 <p className="text-[10px] text-slate-600"><strong>Stack:</strong> Next.js 15, React 19, TypeScript, Tailwind 4, Express 5, Prisma 7, PostgreSQL, Stripe, Vercel</p>
@@ -175,7 +175,7 @@ export default function ResumePage() {
                   <h3 className="text-[11px] font-bold text-black">BloodDonate — Blood Donation Platform</h3>
                 </div>
                 <p className="text-[9.5px] leading-snug break-all">
-                  <a href="https://bloodcare-savelife.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black">bloodcare-savelife.netlify.app</a>
+                  <a href="https://bloodcare-savelife.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black print:decoration-black">bloodcare-savelife.netlify.app</a>
                 </p>
                 <p className="text-[11px] leading-snug text-black">Firebase Auth + role-based dashboards (donor/admin), donor search by blood group/district/upazila, Stripe donations; Framer Motion UI, fully responsive.</p>
                 <p className="text-[10px] text-slate-600"><strong>Stack:</strong> React, Tailwind, Firebase Auth, MongoDB, Express, Stripe</p>
@@ -186,7 +186,7 @@ export default function ResumePage() {
                   <h3 className="text-[11px] font-bold text-black">PlateShare — Surplus Food Sharing</h3>
                 </div>
                 <p className="text-[9.5px] leading-snug break-all">
-                  <a href="https://teal-puffpuff-841438.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black">teal-puffpuff-841438.netlify.app</a>
+                  <a href="https://teal-puffpuff-841438.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black print:decoration-black">teal-puffpuff-841438.netlify.app</a>
                 </p>
                 <p className="text-[11px] leading-snug text-black">Donate/request food with accept/reject workflow, Firebase Auth (email + Google), imgbb uploads, AOS/Framer Motion; concurrent-request handling.</p>
                 <p className="text-[10px] text-slate-600"><strong>Stack:</strong> React, Tailwind/DaisyUI, Node, Express, MongoDB, Firebase</p>
@@ -197,7 +197,7 @@ export default function ResumePage() {
                   <h3 className="text-[11px] font-bold text-black">GreenNest — Plant Care SPA</h3>
                 </div>
                 <p className="text-[9.5px] leading-snug break-all">
-                  <a href="https://endearing-dolphin-0b6714.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black">endearing-dolphin-0b6714.netlify.app</a>
+                  <a href="https://endearing-dolphin-0b6714.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black print:decoration-black">endearing-dolphin-0b6714.netlify.app</a>
                 </p>
                 <p className="text-[11px] leading-snug text-black">SPA with Swiper hero, category visuals, protected routes, profile update via updateProfile(); clean Tailwind design.</p>
                 <p className="text-[10px] text-slate-600"><strong>Stack:</strong> React, Tailwind, Firebase Auth, Swiper.js, React Router</p>
@@ -206,7 +206,7 @@ export default function ResumePage() {
               <div>
                 <h3 className="text-[11px] font-bold text-black">WayToCP — Algorithm Practice (C++)</h3>
                 <p className="text-[9.5px] leading-snug break-all">
-                  <a href="https://github.com/Imtius10/WayToCP" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black">github.com/Imtius10/WayToCP</a>
+                  <a href="https://github.com/Imtius10/WayToCP" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black print:decoration-black">github.com/Imtius10/WayToCP</a>
                 </p>
               <p className="text-[10px] text-black leading-snug">C++ solutions for DP, greedy, graphs & data structures — keeps problem-solving and debugging sharp.</p>
               </div>
