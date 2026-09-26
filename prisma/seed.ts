@@ -1,5 +1,6 @@
 import { PrismaClient } from "../src/generated/prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
+import { DEFAULT_CV } from "../src/lib/cvDefaults";
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
 const prisma = new PrismaClient({ adapter });
@@ -251,6 +252,8 @@ Live: rentora-ecru.vercel.app · API: rent-nest-api-seven.vercel.app · GitHub: 
       data: { ...link, profileId: profile.id },
     });
   }
+
+  await prisma.cvContent.create({ data: { ...DEFAULT_CV } });
 
   console.log("Seed data created successfully!");
 }

@@ -10,6 +10,7 @@ const menuItems = [
   { label: "Skills", href: "/dashboard/skills", icon: "💡" },
   { label: "Education", href: "/dashboard/education", icon: "🎓" },
   { label: "Experience", href: "/dashboard/experience", icon: "💼" },
+  { label: "CV / Resume", href: "/dashboard/cv", icon: "📄" },
   { label: "Social Links", href: "/dashboard/social-links", icon: "🔗" },
   { label: "Messages", href: "/dashboard/messages", icon: "✉️" },
 ];

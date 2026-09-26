@@ -113,3 +113,21 @@ model ContactMessage {
   read      Boolean  @default(false)
   createdAt DateTime @default(now())
 }
+
+model CvContent {
+  id              String   @id @default(cuid())
+  headline        String   @default("")
+  locationLine    String   @default("")
+  summary         String   @default("")
+  skillsFrontend  String   @default("")
+  skillsBackend   String   @default("")
+  skillsDatabase  String   @default("")
+  skillsLanguages String   @default("")
+  skillsTools     String   @default("")
+  skillsConcepts  String   @default("")
+  bachelorNote    String   @default("")
+  cgpaText        String   @default("")
+  activities      String[] @default([])
+  languages       String[] @default([])
+  updatedAt       DateTime @updatedAt
+}
