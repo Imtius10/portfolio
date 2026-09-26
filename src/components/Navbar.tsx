@@ -16,15 +16,27 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState<boolean>(() => {
+    if (typeof window === "undefined") return true;
+    try {
+      const saved = window.localStorage.getItem("theme");
+      return saved ? saved === "dark" : true;
+    } catch {
+      return true;
+    }
+  });
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    if (saved) { setIsDark(saved === "dark"); document.documentElement.classList.toggle("dark", saved === "dark"); document.documentElement.classList.toggle("light", saved !== "dark"); }
-    else document.documentElement.classList.add("dark");
+    document.documentElement.classList.toggle("dark", isDark);
+    document.documentElement.classList.toggle("light", !isDark);
+  }, [isDark]);
+
+  useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", onScroll); return () => window.removeEventListener("scroll", onScroll);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const toggleTheme = () => {

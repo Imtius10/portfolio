@@ -1,6 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
+
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function ScrollReveal({
   children,
@@ -13,7 +15,7 @@ export default function ScrollReveal({
   direction?: "up" | "left" | "right" | "scale";
   delay?: number;
 }) {
-  const variants: Record<string, any> = {
+  const variants: Record<string, Variants> = {
     up: { hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0 } },
     left: { hidden: { opacity: 0, x: -28 }, visible: { opacity: 1, x: 0 } },
     right: { hidden: { opacity: 0, x: 28 }, visible: { opacity: 1, x: 0 } },
@@ -27,7 +29,7 @@ export default function ScrollReveal({
       whileInView="visible"
       viewport={{ once: true, margin: "-80px" }}
       variants={v}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] as any }}
+      transition={{ duration: 0.7, delay, ease: EASE }}
     >
       {children}
     </motion.div>

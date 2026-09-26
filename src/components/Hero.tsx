@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, type Variants } from "framer-motion";
 import { ProfileData } from "@/lib/types";
 import TypeWriter from "./TypeWriter";
 import { Download, ExternalLink, FileText, Mail, ArrowRight } from "lucide-react";
@@ -21,8 +21,8 @@ const socialIcons: Record<string, React.ReactNode> = {
 };
 const typingWords = ["Full Stack Developer", "Next.js & TypeScript", "PostgreSQL • Prisma • Stripe", "Open to Opportunities"];
 
-const container = { hidden: {}, show: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } } };
-const item = { hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } } };
+const container: Variants = { hidden: {}, show: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } } };
+const item: Variants = { hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } };
 
 export default function Hero({ profile }: HeroProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -106,7 +106,7 @@ export default function Hero({ profile }: HeroProps) {
             </motion.div>
           </div>
 
-          <motion.div style={{ rotateX: rx as unknown as string, rotateY: ry as unknown as string, transformPerspective: 900 } as any} className="flex-shrink-0 relative" initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
+          <motion.div style={{ rotateX: rx, rotateY: ry, transformPerspective: 900 }} className="flex-shrink-0 relative" initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
             <div className="relative">
               <div className="relative w-72 h-72 sm:w-[22rem] sm:h-[22rem] rounded-2xl overflow-hidden border border-white/15 bg-white/[0.04] shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}

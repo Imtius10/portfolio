@@ -103,7 +103,7 @@ export default async function ProjectDetailPage({
             <h2 className="text-xl font-semibold text-white">Tech Stack</h2>
           </div>
           <div className="flex flex-wrap gap-3">
-            {project.techStack.map((tech, index) => (
+            {project.techStack.map((tech: string, index: number) => (
               <span
                 key={index}
                 className="px-4 py-2 bg-emerald-600/10 text-emerald-400 rounded-lg border border-emerald-400/20 text-sm font-medium"
@@ -122,7 +122,7 @@ export default async function ProjectDetailPage({
           <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50">
             {(project.longDescription || project.description)
               .split("\n")
-              .map((paragraph, i) => (
+              .map((paragraph: string, i: number) => (
                 <p key={i} className="text-slate-300 leading-relaxed mb-4 last:mb-0">
                   {paragraph}
                 </p>

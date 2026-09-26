@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Lock, User, Eye, EyeOff } from "lucide-react";
 
 export default function DashboardLogin() {
@@ -122,12 +123,12 @@ export default function DashboardLogin() {
 
           {/* Back to portfolio */}
           <div className="mt-6 text-center">
-            <a
+            <Link
               href="/"
               className="text-slate-400 hover:text-emerald-400 text-sm transition-colors"
             >
               ← Back to Portfolio
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable react-hooks/purity -- particles are intentionally randomized once on mount */
 
 import { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
@@ -9,6 +10,7 @@ function ParticleField() {
   const ref = useRef<THREE.Points>(null);
   const count = 1200;
   const { positions, sizes } = useMemo(() => {
+    // Intentionally random once on mount for the starfield/particle effect.
     const pos = new Float32Array(count * 3);
     const sz = new Float32Array(count);
     for (let i = 0; i < count; i++) {

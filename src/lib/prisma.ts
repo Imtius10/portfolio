@@ -6,7 +6,12 @@ const globalForPrisma = globalThis as unknown as {
 };
 
 function createPrismaClient() {
-  const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
+  // Use a dummy URL at build time so `next build` doesn't crash when
+  // DATABASE_URL isn't set. No connection is made until the first query,
+  // and all callers handle DB errors (falling back to mock data).
+  const connectionString =
+    process.env.DATABASE_URL ?? "postgresql://localhost:5432/portfolio_build";
+  const adapter = new PrismaPg({ connectionString });
   return new PrismaClient({ adapter });
 }
 

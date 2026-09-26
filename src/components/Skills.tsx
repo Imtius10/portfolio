@@ -26,6 +26,8 @@ const catText: Record<string, string> = {
 
 const INITIAL = 3;
 
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 export default function Skills({ skills }: SkillsProps) {
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const grouped = skills.reduce<Record<string, SkillWithCategory[]>>((acc, s) => {
@@ -51,7 +53,7 @@ export default function Skills({ skills }: SkillsProps) {
             const visible = isExpanded ? list : list.slice(0, INITIAL);
             const hasMore = list.length > INITIAL;
             return (
-              <motion.div key={cat} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.06, duration: 0.6, ease: [0.22, 1, 0.36, 1] as any }}>
+              <motion.div key={cat} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.06, duration: 0.6, ease: EASE }}>
                 <h3 className={`text-lg font-black tracking-wide mb-6 text-center ${catText[cat] || "text-emerald-300"}`}>{cat}</h3>
                 <motion.div layout className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4">
                   <AnimatePresence initial={false}>
