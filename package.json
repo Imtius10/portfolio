@@ -11,7 +11,7 @@
     "db:push": "prisma db push",
     "db:seed": "prisma db seed",
     "db:studio": "prisma studio",
-    "vercel-build": "prisma generate && npx prisma db push && npx tsx prisma/ensure-projects.ts && next build"
+    "vercel-build": "prisma generate && (prisma db push || echo \"DB push skipped: DATABASE_URL not set/DB unreachable\") && (tsx prisma/ensure-projects.ts || echo \"Project ensure skipped: DB unavailable\") && next build"
   },
   "prisma": {
     "seed": "npx tsx prisma/seed.ts"
