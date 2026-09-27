@@ -131,14 +131,17 @@ export async function getCvPdf(kind: CvPdfKind): Promise<Uint8Array> {
   if (cached) return cached;
 
   let generated: Uint8Array;
+  let rendered = false;
   try {
     generated = await renderFromPage(kind);
+    rendered = true;
     console.log(`CV pdf (${kind}) regenerated, ${generated.length} bytes, hash ${hash}`);
   } catch (error) {
     console.error(`CV pdf (${kind}) render failed, serving snapshot:`, error);
     generated = await fallbackPdf(kind);
   }
 
-  await writeCached(kind, hash, generated);
+  // only cache a real render — never let a fallback poison the cache
+  if (rendered) await writeCached(kind, hash, generated);
   return generated;
 }

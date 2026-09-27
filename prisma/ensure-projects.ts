@@ -83,6 +83,13 @@ async function main() {
     }
   }
   console.log("Project createdAt ordering ensured (latest first)");
+
+  try {
+    await prisma.generatedPdf.deleteMany({});
+    console.log("Cleared cached CV PDFs so they re-render after deploy");
+  } catch (e) {
+    console.log("PDF cache clear skipped:", (e as Error).message.slice(0, 80));
+  }
 }
 
 main()
