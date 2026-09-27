@@ -165,6 +165,7 @@ export default function LecturerPage() {
             {/* Mobile */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
               className="md:hidden p-2 rounded-lg text-slate-300 hover:text-blue-400 hover:bg-white/5 transition-colors"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

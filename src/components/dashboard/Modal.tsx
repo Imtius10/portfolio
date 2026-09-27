@@ -24,6 +24,7 @@ export function Modal({
           <h2 className="text-xl font-semibold text-white">{title}</h2>
           <button
             onClick={onClose}
+            aria-label="Close dialog"
             className="text-slate-400 hover:text-white transition-colors"
           >
             <svg

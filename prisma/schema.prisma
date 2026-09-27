@@ -148,3 +148,11 @@ model LecturerCvContent {
   languages        String[] @default([])
   updatedAt        DateTime @updatedAt
 }
+
+model GeneratedPdf {
+  kind      String   @id
+  hash      String
+  data      Bytes
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
