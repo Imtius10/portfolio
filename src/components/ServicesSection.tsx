@@ -38,7 +38,7 @@ const reasons = [
     icon: <Puzzle className="w-7 h-7" />,
     title: "Problem Solving",
     description:
-      "Strong data-modeling and testing foundation — I write unit/API tests face every feature and hunt edge cases.",
+      "Strong data-modeling and testing foundation — I write unit/API tests for every feature and hunt edge cases.",
   },
   {
     icon: <Rocket className="w-7 h-7" />,

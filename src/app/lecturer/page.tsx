@@ -149,10 +149,17 @@ export default function LecturerPage() {
               ))}
               <Link
                 href="/cv/lecturer"
+                className="ml-2 px-4 py-2 text-sm font-semibold text-slate-300 hover:text-blue-400 rounded-lg border border-white/10 hover:border-blue-400/30 transition-all"
+              >
+                View CV
+              </Link>
+              <a
+                href="/cv-lecturer.pdf"
+                download
                 className="ml-2 px-4 py-2 bg-blue-500/80 hover:bg-blue-400/80 text-white text-sm font-semibold rounded-lg border border-blue-400/20 transition-all"
               >
                 Download CV
-              </Link>
+              </a>
             </div>
 
             {/* Mobile */}
@@ -189,8 +196,16 @@ export default function LecturerPage() {
                 onClick={() => setMobileOpen(false)}
                 className="block px-3 py-2 rounded-lg text-base font-medium text-blue-400 hover:bg-white/5 transition-all"
               >
-                Download CV
+                View CV
               </Link>
+              <a
+                href="/cv-lecturer.pdf"
+                download
+                onClick={() => setMobileOpen(false)}
+                className="block px-3 py-2 rounded-lg text-base font-medium text-blue-400 hover:bg-white/5 transition-all"
+              >
+                Download CV (PDF)
+              </a>
             </div>
           </div>
         )}
@@ -266,6 +281,14 @@ export default function LecturerPage() {
             >
               <BookOpen className="w-5 h-5" />
               View Teaching Areas
+            </a>
+            <a
+              href="/cv-lecturer.pdf"
+              download
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 text-slate-300 hover:text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105"
+            >
+              <Download className="w-5 h-5" />
+              Download CV (PDF)
             </a>
             <a
               href="#contact"

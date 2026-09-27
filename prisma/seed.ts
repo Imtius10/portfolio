@@ -36,8 +36,8 @@ When I'm not coding, you'll find me reading about technology trends, exploring n
       email: CONTACT.email,
       phone: CONTACT.phone,
       whatsapp: CONTACT.whatsapp,
-      resumeUrl: "/resume",
-      lecturerResumeUrl: "/cv/lecturer",
+      resumeUrl: "/resume.pdf",
+      lecturerResumeUrl: "/cv-lecturer.pdf",
       photoUrl: "/images/profile.jpg",
     },
   });
@@ -124,7 +124,7 @@ When I'm not coding, you'll find me reading about technology trends, exploring n
       longDescription: `WayToCP is a repository containing solutions to algorithm problems from online judges. The solutions are written in C++ and cover a wide range of algorithmic topics including data structures, dynamic programming, greedy algorithms, and more.
 
 The repository demonstrates strong problem-solving abilities and understanding of algorithms and data structures. Each solution is well-organized by problem number for easy reference and learning.`,
-      imageUrl: null,
+      imageUrl: "/projects/waytocp.webp",
       liveUrl: null,
       githubUrl: "https://github.com/Imtius10/WayToCP",
       techStack: ["C++", "STL", "Algorithms"],
@@ -144,7 +144,7 @@ The repository demonstrates strong problem-solving abilities and understanding o
 The application features a beautiful hero slider with Swiper.js, plant cards with ratings and pricing, and protected routes for authenticated users. Firebase authentication provides secure login with email/password and Google sign-in options.
 
 The profile management section allows users to update their display name and photo, with real-time updates reflected across the application. The minimalist design with Tailwind CSS creates an elegant browsing experience.`,
-      imageUrl: null,
+      imageUrl: "/projects/greennest.webp",
       liveUrl: "https://endearing-dolphin-0b6714.netlify.app/",
       githubUrl: "https://github.com/Imtius10/Indoor-Plant-Care-Store",
       techStack: ["React", "Tailwind CSS", "Firebase Auth", "Swiper.js", "React Router v6", "React Hot Toast"],
@@ -164,7 +164,7 @@ The profile management section allows users to update their display name and pho
 The platform allows users to donate surplus food, request food when needed, and manage donations through an intuitive dashboard. Firebase handles authentication (email/password + Google sign-in), while the backend uses Node.js, Express, and MongoDB Atlas for data persistence.
 
 Features include food request management with accept/reject workflows, image uploads via imgbb, and beautiful animations using AOS and Framer Motion. The application is fully responsive and works smoothly on all devices.`,
-      imageUrl: null,
+      imageUrl: "/projects/plateshare.webp",
       liveUrl: "https://teal-puffpuff-841438.netlify.app/",
       githubUrl: "https://github.com/Imtius10/PlateShare",
       techStack: ["React", "Tailwind CSS", "DaisyUI", "Node.js", "Express.js", "MongoDB", "Firebase Auth", "Framer Motion"],
@@ -184,7 +184,7 @@ Features include food request management with accept/reject workflows, image upl
 The application features secure Firebase authentication, role-based dashboards for donors and admins, and a powerful search system to find donors by blood group, district, and upazila. The UI is built with React and enhanced with Framer Motion animations for a smooth experience.
 
 Stripe payment integration allows users to support the cause financially, while the responsive design ensures the platform works seamlessly across all devices.`,
-      imageUrl: null,
+      imageUrl: "/projects/blooddonate.webp",
       liveUrl: "https://bloodcare-savelife.netlify.app/",
       githubUrl: "https://github.com/Imtius10/Blood-donation-client",
       techStack: ["React", "Tailwind CSS", "Framer Motion", "Firebase Auth", "MongoDB", "Express.js", "Stripe"],
@@ -210,9 +210,8 @@ Highlights by role:
 
 Search & filter by location, price range and property type (apartment · studio · house · condo · penthouse · villa · more). Rich property detail pages with category visuals & landlord info. Repository layout: Module_4_Frontend (Next.js) + Module_4 (Express + Prisma).
 
-Demo accounts — Admin: admin@rentnest.com / admin123 · Landlord: imtius1@example.com / 12345678 · Tenant: tanvir@tenant.com / 123456.
 Live: rentora-ecru.vercel.app · API: rent-nest-api-seven.vercel.app · GitHub: github.com/Imtius10/Rentora`,
-      imageUrl: null,
+      imageUrl: "/projects/rentnest.webp",
       liveUrl: "https://rentora-ecru.vercel.app",
       githubUrl: "https://github.com/Imtius10/Rentora",
       techStack: [

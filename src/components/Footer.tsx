@@ -1,4 +1,5 @@
 import { ProfileData } from "@/lib/types";
+import Link from "next/link";
 import {
   GithubIcon,
   LinkedinIcon,
@@ -29,6 +30,21 @@ export default function Footer({ profile }: FooterProps) {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-slate-400 light:text-slate-500 text-sm">
             &copy; {currentYear} {profile.name}. All rights reserved.
+          </div>
+
+          <div className="flex items-center gap-5 text-sm">
+            <Link
+              href="/lecturer"
+              className="text-slate-400 light:text-slate-500 hover:text-emerald-400 light:hover:text-emerald-600 transition-colors"
+            >
+              Academic Profile
+            </Link>
+            <Link
+              href="/cv/lecturer"
+              className="text-slate-400 light:text-slate-500 hover:text-emerald-400 light:hover:text-emerald-600 transition-colors"
+            >
+              Lecturer CV
+            </Link>
           </div>
 
           <div className="flex items-center gap-4">

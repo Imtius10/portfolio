@@ -86,7 +86,7 @@ export default function Hero({ profile }: HeroProps) {
               <a href="#contact" className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white font-semibold rounded-2xl shadow-[0_12px_28px_rgba(16,185,129,0.35)] transition-all">
                 <Mail className="w-5 h-5" /> Hire Me <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </a>
-              <a href={profile.resumeUrl || "/resume"} target={profile.resumeUrl ? "_blank" : undefined} rel={profile.resumeUrl ? "noopener noreferrer" : undefined} className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-xl border border-white/10 text-white font-semibold rounded-2xl transition-all">
+              <a href={profile.resumeUrl || "/resume"} target={profile.resumeUrl ? "_blank" : undefined} rel={profile.resumeUrl ? "noopener noreferrer" : undefined} download={profile.resumeUrl ? "Imtius-Ahmad-Resume.pdf" : undefined} className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/[0.06] hover:bg-white/[0.10] backdrop-blur-xl border border-white/10 text-white font-semibold rounded-2xl transition-all">
                 {profile.resumeUrl ? <Download className="w-5 h-5" /> : <FileText className="w-5 h-5" />} {profile.resumeUrl ? "Download Resume" : "View Resume"}
               </a>
               <a href="#projects" className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/[0.04] hover:bg-white/[0.08] backdrop-blur-xl border border-white/10 text-slate-200 hover:text-white font-semibold rounded-2xl transition-all">

@@ -63,7 +63,7 @@ export default function StatsSection() {
     <section className="py-16 bg-slate-900/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <AnimatedStat end={3} suffix="+" label="Projects Shipped" />
+          <AnimatedStat end={5} suffix="+" label="Projects Shipped" />
           <AnimatedStat end={15} suffix="+" label="Technologies" />
           <AnimatedStat end={100} suffix="+" label="Problems Solved" />
           <AnimatedStat end={3} suffix="+" label="Years Coding" />

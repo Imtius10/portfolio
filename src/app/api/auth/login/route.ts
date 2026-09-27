@@ -1,11 +1,18 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 
-const DASHBOARD_USERNAME = process.env.DASHBOARD_USERNAME || "imtius";
-const DASHBOARD_PASSWORD = process.env.DASHBOARD_PASSWORD || "imtius2024";
+const DASHBOARD_USERNAME = process.env.DASHBOARD_USERNAME;
+const DASHBOARD_PASSWORD = process.env.DASHBOARD_PASSWORD;
 
 export async function POST(request: Request) {
   try {
+    if (!DASHBOARD_USERNAME || !DASHBOARD_PASSWORD) {
+      return NextResponse.json(
+        { success: false, message: "Dashboard is not configured on this deployment." },
+        { status: 503 }
+      );
+    }
+
     const body = await request.json();
     const { username, password } = body;
 

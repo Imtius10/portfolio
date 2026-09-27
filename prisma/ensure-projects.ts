@@ -27,9 +27,8 @@ Highlights by role:
 
 Search & filter by location, price range and property type (apartment · studio · house · condo · penthouse · villa · more). Rich property detail pages with category visuals & landlord info. Repository layout: Module_4_Frontend (Next.js) + Module_4 (Express + Prisma).
 
-Demo accounts — Admin: admin@rentnest.com / admin123 · Landlord: imtius1@example.com / 12345678 · Tenant: tanvir@tenant.com / 123456.
 Live: rentora-ecru.vercel.app · API: rent-nest-api-seven.vercel.app · GitHub: github.com/Imtius10/Rentora`,
-  imageUrl: null,
+  imageUrl: "/projects/rentnest.webp",
   liveUrl: "https://rentora-ecru.vercel.app",
   githubUrl: "https://github.com/Imtius10/Rentora",
   techStack: [
