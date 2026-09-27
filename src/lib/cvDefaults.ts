@@ -21,7 +21,7 @@ export interface CvContentData {
 export const DEFAULT_CV: CvContentData = {
   headline: "Full Stack Developer · Next.js · TypeScript · PostgreSQL",
   locationLine:
-    "Bogura, Bangladesh · Available for full-time · Remote / On-site · Open to relocation",
+    "Dhaka, Bangladesh · Available for full-time · Remote / On-site · Open to relocation",
   summary:
     "Results-driven Full-Stack Developer with hands-on experience designing, building, and deploying production-grade web applications using Next.js 15, React 19, TypeScript, PostgreSQL, and Prisma. Developed five end-to-end projects, including RentNest, a role-based rental marketplace with JWT authentication, Stripe payment processing, and advanced search and filtering. Skilled in RESTful API design, relational database modeling, application debugging, responsive UI development, and automated test case authoring. Proficient across the full software development lifecycle — from data schema design and backend integration to continuous deployment on Vercel.",
   skillsFrontend:

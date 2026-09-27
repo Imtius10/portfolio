@@ -5,7 +5,7 @@ export const CONTACT = {
   email: "h.imtius10@gmail.com",
   phone: "+8801614742777",
   whatsapp: "+8801614742777",
-  location: "Bogura, Bangladesh",
+  location: "Dhaka, Bangladesh",
   linkedin: "https://www.linkedin.com/in/imtius10/",
   github: "https://github.com/Imtius10",
 } as const;

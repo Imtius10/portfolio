@@ -355,7 +355,7 @@ export default function LecturerPage() {
                     </div>
                     <div className="flex items-center justify-between py-2 border-b border-white/10">
                       <span className="text-slate-400 text-xs">Madrasah Board</span>
-                      <span className="text-white font-semibold text-xs">Bogura</span>
+                      <span className="text-white font-semibold text-xs">Dhaka</span>
                     </div>
                     <div className="flex items-center justify-between py-2">
                       <span className="text-slate-400 text-sm">Status</span>

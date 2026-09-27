@@ -27,7 +27,7 @@ export interface LecturerCvData {
 export const DEFAULT_LECTURER_CV: LecturerCvData = {
   headline: "Lecturer in Computer Science & Engineering",
   locationLine:
-    "Bogura, Bangladesh · BSc CSE (Netrokona University, CGPA 3.55/4.00 — exams completed, awaiting final result)",
+    "Dhaka, Bangladesh · BSc CSE (Netrokona University, CGPA 3.55/4.00 — exams completed, awaiting final result)",
   objective:
     "Dedicated and academically accomplished final-semester BSc graduate in Computer Science & Engineering (CGPA: 3.55/4.00; final examinations completed, awaiting results). Seeking a lecturer position to apply a solid academic background in programming, data structures and algorithms, operating systems, computer networks, and database management systems toward fostering student development and academic success. Experienced in peer tutoring, mentoring, and delivering clear, example-driven instruction grounded in project-based pedagogy. Committed to advancing academic excellence, meaningful student engagement, and applied research within a higher-education institution.",
   teachingAreas: [
