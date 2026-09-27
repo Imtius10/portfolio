@@ -18,3 +18,8 @@ export const CONTACT_LINE = `${CONTACT.email} | ${CONTACT.phone} | ${shortUrl(
 export function shortUrl(url: string) {
   return url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 }
+
+/** Visible label for a CV project link — the real URL stays in the href. */
+export function linkLabel(url: string) {
+  return /github\.com/i.test(url) ? "GitHub" : "Live Link";
+}

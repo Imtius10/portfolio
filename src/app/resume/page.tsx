@@ -120,13 +120,13 @@ function ProjectEntry({ p }: { p: Project }) {
     <div className="mb-1.5">
       <h3 className="text-[11px] font-bold text-black">{p.title}</h3>
       {(p.githubUrl || p.liveUrl) && (
-        <p className="text-[10px] leading-snug break-all">
+        <p className="text-[10px] leading-snug">
           {p.githubUrl && (
-            <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" className={linkCls}>{shortUrl(p.githubUrl)}</a>
+            <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" className={linkCls}>GitHub</a>
           )}
           {p.githubUrl && p.liveUrl && <span className="mx-1 text-slate-400">|</span>}
           {p.liveUrl && (
-            <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className={linkCls}>{shortUrl(p.liveUrl)}</a>
+            <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className={linkCls}>Live Link</a>
           )}
         </p>
       )}

@@ -7,7 +7,7 @@ import {
   type LecturerCvData,
   type LecturerProject,
 } from "@/lib/lecturerCvDefaults";
-import { CONTACT, shortUrl } from "@/lib/contact";
+import { CONTACT, shortUrl, linkLabel } from "@/lib/contact";
 
 interface Edu {
   id: string;
@@ -232,11 +232,11 @@ function LecturerCVContent() {
                   <div key={i}>
                     <span className="text-[11px] font-bold text-black">{p.title}</span>
                     {p.links?.length > 0 && (
-                      <p className="text-[10px] leading-snug break-all">
+                      <p className="text-[10px] leading-snug">
                         {p.links.map((url, li) => (
                           <span key={li}>
                             {li > 0 && <span className="mx-1 text-slate-400">|</span>}
-                            <a href={url} target="_blank" rel="noopener noreferrer" className={linkCls}>{shortUrl(url)}</a>
+                            <a href={url} target="_blank" rel="noopener noreferrer" className={linkCls}>{linkLabel(url)}</a>
                           </span>
                         ))}
                       </p>
