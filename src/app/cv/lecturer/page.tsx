@@ -1,7 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import {
+  DEFAULT_LECTURER_CV,
+  type LecturerCvData,
+  type LecturerProject,
+} from "@/lib/lecturerCvDefaults";
+import { CONTACT, shortUrl } from "@/lib/contact";
 
 interface Edu {
   id: string;
@@ -13,11 +19,47 @@ interface Edu {
   description: string | null;
 }
 
+interface Contact {
+  name: string;
+  email: string;
+  phone: string;
+  github: string;
+  linkedin: string;
+}
+
 const FALLBACK_EDUCATION: Edu[] = [
   { id: "fallback-lect-1", institution: "Netrokona University", degree: "Bachelor of Science", field: "Computer Science & Engineering", startDate: "2022-03-22", endDate: "2026-07-20", description: "Exams completed — awaiting final result. CGPA 3.55/4.00." },
   { id: "fallback-lect-2", institution: "Bogura Government College, Rajshahi Board", degree: "Higher Secondary Certificate (HSC)", field: "Science", startDate: "2018-01-01", endDate: "2020-01-01", description: "GPA: 5.00/5.00" },
   { id: "fallback-lect-3", institution: "Govt. Mustafabia Alia Madrasah, Bogura (Madrasah Board)", degree: "Secondary School Certificate (SSC) / Dakhil", field: "Science", startDate: "2016-01-01", endDate: "2018-01-01", description: "GPA: 5.00/5.00" },
 ];
+
+const FALLBACK_CONTACT: Contact = {
+  name: CONTACT.name,
+  email: CONTACT.email,
+  phone: CONTACT.phone,
+  github: CONTACT.github,
+  linkedin: CONTACT.linkedin,
+};
+
+function contactFromProfile(data: unknown): Contact | null {
+  if (!data || typeof data !== "object") return null;
+  const p = data as {
+    name?: string;
+    email?: string;
+    phone?: string;
+    socialLinks?: { platform: string; url: string }[];
+  };
+  if (!p.name) return null;
+  const find = (key: string) =>
+    p.socialLinks?.find((l) => l.platform.toLowerCase().includes(key))?.url ?? "";
+  return {
+    name: p.name,
+    email: p.email || CONTACT.email,
+    phone: p.phone || CONTACT.phone,
+    github: find("github") || CONTACT.github,
+    linkedin: find("linkedin") || CONTACT.linkedin,
+  };
+}
 
 function fmtDate(d: string) {
   const x = new Date(d);
@@ -31,17 +73,73 @@ function fmtRange(edu: Edu) {
   return `${start} – ${end}`;
 }
 
-const h2 = "text-[11px] font-bold uppercase tracking-[0.12em] text-black border-b border-black pb-0.5 mb-1.5";
+const h2 = "text-[11px] font-bold uppercase text-black border-b border-black pb-0.5 mb-1";
+const linkCls = "text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black print:decoration-black";
 
-export default function LecturerCVPage() {
+/** "Label: items" → bold label, plain rest. */
+function splitLabel(text: string) {
+  const i = text.indexOf(":");
+  if (i === -1) return { label: "", rest: text };
+  return { label: text.slice(0, i + 1), rest: text.slice(i + 1) };
+}
+
+/** "Head — detail" → bold head, plain detail. */
+function splitHead(text: string) {
+  const i = text.indexOf(" — ");
+  if (i === -1) return { head: "", rest: text };
+  return { head: text.slice(0, i), rest: text.slice(i + 3) };
+}
+
+function LecturerCVContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const autoPrint = searchParams.get("print") === "1";
+
+  const [cv, setCv] = useState<LecturerCvData>(DEFAULT_LECTURER_CV);
+  const [contact, setContact] = useState<Contact>(FALLBACK_CONTACT);
   const [education, setEducation] = useState<Edu[]>(FALLBACK_EDUCATION);
+
   useEffect(() => {
-    document.title = "Imtius Ahmad — Lecturer CV";
-    fetch("/api/education").then((r) => r.json()).then((data) => {
-      if (Array.isArray(data) && data.length > 0) setEducation([...data].sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime()));
-    }).catch(() => {});
-  }, []);
+    document.title = `${FALLBACK_CONTACT.name} - Lecturer CV`;
+    let cancelled = false;
+
+    Promise.allSettled([
+      fetch("/api/lecturer-cv").then((r) => (r.ok ? r.json() : null)),
+      fetch("/api/education").then((r) => (r.ok ? r.json() : null)),
+      fetch("/api/profile").then((r) => (r.ok ? r.json() : null)),
+    ]).then(([cvRes, eduRes, profileRes]) => {
+      if (cancelled) return;
+      if (cvRes.status === "fulfilled" && cvRes.value) {
+        const row = cvRes.value as Partial<LecturerCvData>;
+        const projects = Array.isArray(row.projects)
+          ? (row.projects as LecturerProject[])
+          : DEFAULT_LECTURER_CV.projects;
+        setCv({ ...DEFAULT_LECTURER_CV, ...row, projects });
+      }
+      if (eduRes.status === "fulfilled" && Array.isArray(eduRes.value) && eduRes.value.length > 0) {
+        setEducation(
+          [...eduRes.value].sort(
+            (a: Edu, b: Edu) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+          )
+        );
+      }
+      if (profileRes.status === "fulfilled" && profileRes.value) {
+        const c = contactFromProfile(profileRes.value);
+        if (c) {
+          setContact(c);
+          document.title = `${c.name} - Lecturer CV`;
+        }
+      }
+      if (autoPrint) {
+        setTimeout(() => window.print(), 600);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [autoPrint]);
+
   const handleDownload = () => window.print();
   const isBachelor = (edu: Edu) => edu.degree.toLowerCase().includes("bachelor");
 
@@ -57,36 +155,32 @@ export default function LecturerCVPage() {
         </div>
       </div>
 
-      <div className="pt-14 pb-10 flex justify-center bg-slate-100 min-h-screen print:pt-0 print:pb-0 print:bg-white">
-        <div className="w-[210mm] bg-white shadow-2xl shadow-slate-300/50 text-black overflow-hidden print:shadow-none print:m-0" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
+      <div className="pt-14 pb-10 flex justify-center bg-slate-100 min-h-screen print:block print:pt-0 print:pb-0 print:bg-white">
+        <div className="cv-sheet w-[210mm] bg-white shadow-2xl shadow-slate-300/50 text-black overflow-hidden print:w-full print:py-4 print:shadow-none print:m-0" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
           <div className="h-1 bg-black" />
           <div className="px-7 py-3">
 
             <header className="mb-2.5">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h1 className="text-[26px] font-bold text-black leading-none">Imtius Ahmad</h1>
-                  <p className="text-[12px] font-bold mt-1">Lecturer in Computer Science & Engineering</p>
-                  <p className="text-[10px] text-slate-600 mt-0.5">Bogura, Bangladesh · BSc CSE (Netrokona University, CGPA 3.55/4.00 — exams completed, awaiting final result)</p>
-                </div>
-                <div className="text-right text-[11px] text-black space-y-0.5 leading-tight">
-                  <p><a href="mailto:h.imtius10@gmail.com">h.imtius10@gmail.com</a></p>
-                  <p><a href="tel:+8801614742777">+8801614742777</a></p>
-                  <p><a href="https://www.linkedin.com/in/imtius10/" target="_blank" rel="noopener noreferrer">linkedin.com/in/imtius10</a></p>
-                  <p><a href="https://github.com/Imtius10" target="_blank" rel="noopener noreferrer">github.com/Imtius10</a></p>
-                </div>
-              </div>
-            </header>
-            <p className="sr-only">Imtius Ahmad, Bogura Bangladesh. Email: h.imtius10@gmail.com | Phone: +8801614742777 | LinkedIn: linkedin.com/in/imtius10 | GitHub: github.com/Imtius10</p>
-
-            <section className="mb-2">
-              <h2 className={h2}>Career Objective</h2>
-              <p className="text-[11px] leading-snug text-black">
-                Dedicated and academically accomplished final-semester <strong>BSc graduate in Computer Science & Engineering</strong> (CGPA: 3.55/4.00; final examinations completed, awaiting results). Seeking a <strong>lecturer position</strong> to apply a solid academic background in <strong>programming, data structures and algorithms, operating systems, computer networks, and database management systems</strong> toward fostering student development and academic success. Experienced in peer tutoring, mentoring, and delivering clear, example-driven instruction grounded in project-based pedagogy. Committed to advancing academic excellence, meaningful student engagement, and applied research within a higher-education institution.
+              <h1 className="text-[26px] font-bold text-black leading-none">{contact.name}</h1>
+              <p className="text-[12px] font-bold mt-1">{cv.headline}</p>
+              <p className="text-[10px] text-slate-600 mt-0.5">{cv.locationLine}</p>
+              <p className="text-[11px] text-black mt-1 leading-tight">
+                <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                <span className="mx-1.5 text-slate-400">|</span>
+                <a href={`tel:${contact.phone.replace(/\s/g, "")}`}>{contact.phone}</a>
+                <span className="mx-1.5 text-slate-400">|</span>
+                <a href={contact.linkedin} target="_blank" rel="noopener noreferrer">{shortUrl(contact.linkedin)}</a>
+                <span className="mx-1.5 text-slate-400">|</span>
+                <a href={contact.github} target="_blank" rel="noopener noreferrer">{shortUrl(contact.github)}</a>
               </p>
+            </header>
+
+            <section className="mb-1">
+              <h2 className={h2}>Career Objective</h2>
+              <p className="text-[11px] leading-snug text-black">{cv.objective}</p>
             </section>
 
-            <section className="mb-2">
+            <section className="mb-1">
               <h2 className={h2}>Education</h2>
               {education.map((edu) => (
                 <div key={edu.id} className="mb-1">
@@ -103,76 +197,79 @@ export default function LecturerCVPage() {
               ))}
             </section>
 
-            <section className="mb-2">
+            <section className="mb-1">
               <h2 className={h2}>Teaching Areas</h2>
               <div className="grid grid-cols-2 print:grid-cols-1 gap-x-5 gap-y-0.5 text-[11px] leading-snug">
-                <p><strong>Programming:</strong> C, C++, Java, Python, JavaScript, TypeScript</p>
-                <p><strong>Core CS:</strong> Data Structures, Algorithms, OS, Networks, DBMS</p>
-                <p><strong>Theory:</strong> Automata Theory, Compiler Design, Complexity Analysis</p>
-                <p><strong>Applied:</strong> OOP, Software Engineering, AI/ML, Cryptography</p>
-                <p><strong>Web:</strong> REST API Design, DB Modeling (Prisma/PostgreSQL), Auth & Payments</p>
-                <p><strong>Pedagogy:</strong> Project-based learning, Curriculum Development, Student Assessment, Research</p>
+                {cv.teachingAreas.map((area, i) => {
+                  const { label, rest } = splitLabel(area);
+                  return (
+                    <p key={i}>
+                      {label && <strong>{label}</strong>} {rest}
+                    </p>
+                  );
+                })}
               </div>
             </section>
 
-            <section className="mb-2">
+            <section className="mb-1">
               <h2 className={h2}>Teaching & Mentoring Experience</h2>
               <ul className="text-[11px] text-black space-y-0.5 list-disc list-inside leading-snug">
-                <li><strong>Peer Tutor (Netrokona University)</strong> — Guided juniors in DSA, C/C++ labs and exam preparation; simplified recursion, DP and graph topics with visual examples.</li>
-                <li><strong>Problem-Solving Mentor</strong> — Coached classmates on DP, greedy & graphs; ran hands-on debugging sessions and complexity analysis walkthroughs.</li>
-                <li><strong>Project Guide</strong> — Assisted 10+ course projects (requirements, schema design, API & UI review) and introduced version control & testing habits.</li>
+                {cv.experience.map((item, i) => {
+                  const { head, rest } = splitHead(item);
+                  return (
+                    <li key={i}>
+                      {head ? <><strong>{head}</strong> — {rest}</> : item}
+                    </li>
+                  );
+                })}
               </ul>
             </section>
 
-            <section className="mb-2">
+            <section className="mb-1">
               <h2 className={h2}>Academic Projects</h2>
-              <div className="space-y-1.5">
-                <div>
-                  <span className="text-[11px] font-bold text-black">RentNest — Full-Stack Rental Marketplace</span>
-                  <p className="text-[9.5px] leading-snug break-all">
-                    <a href="https://github.com/Imtius10/Rentora" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black print:decoration-black">github.com/Imtius10/Rentora</a>
-                    <span className="mx-1 text-slate-400">|</span>
-                    <a href="https://rentora-ecru.vercel.app" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black print:decoration-black">rentora-ecru.vercel.app</a>
-                  </p>
-                  <p className="text-[11px] text-black leading-snug">Software engineering case study: Prisma + PostgreSQL schema, JWT (httpOnly cookies) auth, Stripe Checkout + webhooks, role-based dashboards (Tenant/Landlord/Admin), Vercel deploy. Ideal for teaching <strong>DB design, REST, auth & payments</strong>.</p>
-                  <p className="text-[10px] text-slate-600"><strong>Stack:</strong> Next.js 15, React 19, TypeScript, Prisma 7, PostgreSQL, Stripe, TanStack Query</p>
-                </div>
-                <div>
-                  <span className="text-[11px] font-bold text-black">WayToCP — Algorithm Practice Repository</span>
-                  <p className="text-[9.5px] leading-snug break-all">
-                    <a href="https://github.com/Imtius10/WayToCP" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black print:decoration-black">github.com/Imtius10/WayToCP</a>
-                  </p>
-                  <p className="text-[11px] text-black leading-snug">C++ collection for DP, greedy, graphs & data structures; used as peer-teaching material for complexity analysis and problem decomposition.</p>
-                </div>
-                <div>
-                  <span className="text-[11px] font-bold text-black">BloodDonate / PlateShare — MERN Case Studies</span>
-                  <p className="text-[9.5px] leading-snug break-all">
-                    <a href="https://bloodcare-savelife.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black print:decoration-black">bloodcare-savelife.netlify.app</a>
-                    <span className="mx-1 text-slate-400">|</span>
-                    <a href="https://teal-puffpuff-841438.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black print:decoration-black">teal-puffpuff-841438.netlify.app</a>
-                  </p>
-                  <p className="text-[11px] text-black leading-snug">Illustrate OOP, workflow design and real-time data management — used to teach MVC, Firebase auth and responsive UI patterns.</p>
-                </div>
+              <div className="space-y-1">
+                {cv.projects.map((p: LecturerProject, i: number) => (
+                  <div key={i}>
+                    <span className="text-[11px] font-bold text-black">{p.title}</span>
+                    {p.links?.length > 0 && (
+                      <p className="text-[10px] leading-snug break-all">
+                        {p.links.map((url, li) => (
+                          <span key={li}>
+                            {li > 0 && <span className="mx-1 text-slate-400">|</span>}
+                            <a href={url} target="_blank" rel="noopener noreferrer" className={linkCls}>{shortUrl(url)}</a>
+                          </span>
+                        ))}
+                      </p>
+                    )}
+                    <p className="text-[11px] text-black leading-snug">{p.description}</p>
+                    {p.stack && <p className="text-[10px] text-slate-600"><strong>Stack:</strong> {p.stack}</p>}
+                  </div>
+                ))}
               </div>
             </section>
 
-            <section className="mb-1.5">
+            <section className="mb-1">
               <div className="grid grid-cols-2 print:grid-cols-1 gap-x-5">
                 <div>
                   <h2 className={h2}>Technical Skills</h2>
                   <div className="space-y-0.5 text-[11px] leading-snug">
-                    <p><strong>Languages:</strong> C, C++, Java, Python, JS/TS</p>
-                    <p><strong>Frameworks:</strong> React, Next.js, Node, Express</p>
-                    <p><strong>Databases:</strong> PostgreSQL, MongoDB, Prisma ORM</p>
-                    <p><strong>Tools:</strong> Git, GitHub, Vercel, Linux</p>
+                    <p><strong>Languages:</strong> {cv.skillsLanguages}</p>
+                    <p><strong>Frameworks:</strong> {cv.skillsFrameworks}</p>
+                    <p><strong>Databases:</strong> {cv.skillsDatabases}</p>
+                    <p><strong>Tools:</strong> {cv.skillsTools}</p>
                   </div>
                 </div>
                 <div>
                   <h2 className={h2}>Service & Leadership</h2>
                   <div className="space-y-0.5 text-[11px] leading-snug">
-                    <p><strong>Tour Manager</strong> — Logistics & budgeting for 70+ students & faculty</p>
-                    <p><strong>Event Organizer</strong> — Tech events & academic programs, Netrokona Univ.</p>
-                    <p><strong>Mentor</strong> — Daily DSA practice, debugging workshops</p>
+                    {cv.serviceLeadership.map((item, i) => {
+                      const { head, rest } = splitHead(item);
+                      return (
+                        <p key={i}>
+                          {head ? <><strong>{head}</strong> — {rest}</> : item}
+                        </p>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -180,18 +277,30 @@ export default function LecturerCVPage() {
 
             <section>
               <h2 className={h2}>Languages</h2>
-              <div className="flex gap-5 text-[11px] text-black">
-                <span><strong>Bangla</strong> — Native</span>
-                <span><strong>English</strong> — Professional</span>
-                <span><strong>Hindi</strong> — Conversational</span>
-                <span><strong>Urdu</strong> — Basic</span>
+              <div className="flex flex-wrap gap-x-5 gap-y-0.5 text-[11px] text-black">
+                {cv.languages.map((l, i) => {
+                  const { head, rest } = splitHead(l);
+                  return (
+                    <span key={i}>
+                      {head ? <><strong>{head}</strong> — {rest}</> : l}
+                    </span>
+                  );
+                })}
               </div>
             </section>
 
           </div>
         </div>
       </div>
-      <style>{`@media print { @page { size: A4; margin: 6mm 8mm; } .print\\:hidden{display:none!important} }`}</style>
+      <style>{`@media print { @page { size: A4; margin: 0; } .print\\:hidden{display:none!important} }`}</style>
     </>
+  );
+}
+
+export default function LecturerCVPage() {
+  return (
+    <Suspense>
+      <LecturerCVContent />
+    </Suspense>
   );
 }

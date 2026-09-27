@@ -19,7 +19,9 @@ import {
   Award,
   Globe,
   Download,
+  Phone,
 } from "lucide-react";
+import { CONTACT } from "@/lib/contact";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -525,8 +527,28 @@ export default function LecturerPage() {
                   <Mail className="w-5 h-5 text-blue-400" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">Preferred contact</p>
-                  <p className="text-slate-400 text-sm">Use LinkedIn or the download CV link — I&apos;ll respond quickly.</p>
+                  <p className="text-white font-semibold">Email</p>
+                  <a
+                    href={`mailto:${CONTACT.email}`}
+                    className="text-slate-400 text-sm hover:text-blue-400 transition-colors break-all"
+                  >
+                    {CONTACT.email}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-md rounded-xl border border-white/10">
+                <div className="p-3 bg-blue-500/20 rounded-xl">
+                  <Phone className="w-5 h-5 text-blue-400" />
+                </div>
+                <div>
+                  <p className="text-white font-semibold">Phone / WhatsApp</p>
+                  <a
+                    href={`tel:${CONTACT.phone}`}
+                    className="text-slate-400 text-sm hover:text-blue-400 transition-colors"
+                  >
+                    {CONTACT.phone}
+                  </a>
                 </div>
               </div>
             </div>

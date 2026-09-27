@@ -1,6 +1,8 @@
 import { PrismaClient } from "../src/generated/prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { DEFAULT_CV } from "../src/lib/cvDefaults";
+import { DEFAULT_LECTURER_CV } from "../src/lib/lecturerCvDefaults";
+import { CONTACT } from "../src/lib/contact";
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
 const prisma = new PrismaClient({ adapter });
@@ -15,6 +17,8 @@ async function main() {
   await prisma.education.deleteMany();
   await prisma.experience.deleteMany();
   await prisma.profile.deleteMany();
+  await prisma.cvContent.deleteMany();
+  await prisma.lecturerCvContent.deleteMany();
 
   const profile = await prisma.profile.create({
     data: {
@@ -29,11 +33,11 @@ Over time, I transitioned into full-stack web development, falling in love with 
 Beyond coding, I practice algorithm problems regularly to keep my logic and debugging skills sharp. I also enjoy exploring new technologies, contributing to open-source projects, and learning about system design.
 
 When I'm not coding, you'll find me reading about technology trends, exploring new frameworks, or spending time with friends. I believe in continuous learning and am always looking for new challenges to grow as a developer.`,
-      email: "h.imtius10@gmail.com",
-      phone: "+8801614742777",
-      whatsapp: "+8801614742777",
-      resumeUrl: null,
-      lecturerResumeUrl: null,
+      email: CONTACT.email,
+      phone: CONTACT.phone,
+      whatsapp: CONTACT.whatsapp,
+      resumeUrl: "/resume",
+      lecturerResumeUrl: "/cv/lecturer",
       photoUrl: "/images/profile.jpg",
     },
   });
@@ -241,9 +245,8 @@ Live: rentora-ecru.vercel.app · API: rent-nest-api-seven.vercel.app · GitHub: 
   }
 
   const socialLinks = [
-    { platform: "GitHub", url: "https://github.com/Imtius10" },
-    { platform: "LinkedIn", url: "https://www.linkedin.com/in/imtius10/" },
-    { platform: "Facebook", url: "https://www.facebook.com/" },
+    { platform: "GitHub", url: CONTACT.github },
+    { platform: "LinkedIn", url: CONTACT.linkedin },
     { platform: "Instagram", url: "https://www.instagram.com/imti.us/" },
   ];
 
@@ -254,6 +257,22 @@ Live: rentora-ecru.vercel.app · API: rent-nest-api-seven.vercel.app · GitHub: 
   }
 
   await prisma.cvContent.create({ data: { ...DEFAULT_CV } });
+  await prisma.lecturerCvContent.create({
+    data: {
+      headline: DEFAULT_LECTURER_CV.headline,
+      locationLine: DEFAULT_LECTURER_CV.locationLine,
+      objective: DEFAULT_LECTURER_CV.objective,
+      teachingAreas: DEFAULT_LECTURER_CV.teachingAreas,
+      experience: DEFAULT_LECTURER_CV.experience,
+      projects: DEFAULT_LECTURER_CV.projects,
+      skillsLanguages: DEFAULT_LECTURER_CV.skillsLanguages,
+      skillsFrameworks: DEFAULT_LECTURER_CV.skillsFrameworks,
+      skillsDatabases: DEFAULT_LECTURER_CV.skillsDatabases,
+      skillsTools: DEFAULT_LECTURER_CV.skillsTools,
+      serviceLeadership: DEFAULT_LECTURER_CV.serviceLeadership,
+      languages: DEFAULT_LECTURER_CV.languages,
+    },
+  });
 
   console.log("Seed data created successfully!");
 }

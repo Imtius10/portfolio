@@ -131,3 +131,20 @@ model CvContent {
   languages       String[] @default([])
   updatedAt       DateTime @updatedAt
 }
+
+model LecturerCvContent {
+  id               String   @id @default(cuid())
+  headline         String   @default("")
+  locationLine     String   @default("")
+  objective        String   @default("")
+  teachingAreas    String[] @default([])
+  experience       String[] @default([])
+  projects         Json     @default("[]")
+  skillsLanguages  String   @default("")
+  skillsFrameworks String   @default("")
+  skillsDatabases  String   @default("")
+  skillsTools      String   @default("")
+  serviceLeadership String[] @default([])
+  languages        String[] @default([])
+  updatedAt        DateTime @updatedAt
+}

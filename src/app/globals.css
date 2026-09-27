@@ -208,4 +208,15 @@ body {
     margin: 0;
     size: A4;
   }
+
+  /* ATS: the exported CV PDF must be plain black text on white. */
+  .cv-sheet,
+  .cv-sheet * {
+    color: #000 !important;
+  }
+
+  .cv-sheet a {
+    text-decoration: underline !important;
+    text-decoration-color: #000 !important;
+  }
 }

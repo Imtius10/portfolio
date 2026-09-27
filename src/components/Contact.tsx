@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ProfileData } from "@/lib/types";
+import { CONTACT } from "@/lib/contact";
 import { Send, CheckCircle, Loader2 } from "lucide-react";
 
 interface ContactProps {
@@ -68,10 +69,22 @@ export default function Contact(_: ContactProps) {
 
             <div className="space-y-4">
               <div className="p-5 bg-white/5 light:bg-slate-50 backdrop-blur-md rounded-xl border border-white/10 light:border-slate-200">
-                <p className="text-sm text-slate-500 light:text-slate-400 mb-2">Prefer email?</p>
-                <p className="text-white light:text-slate-800 text-sm">
-                  Reach me through the form — I&apos;ll reply to your inbox directly.
-                </p>
+                <p className="text-sm text-slate-500 light:text-slate-400 mb-2">Email</p>
+                <a
+                  href={`mailto:${CONTACT.email}`}
+                  className="text-white light:text-slate-800 text-sm hover:text-emerald-400 transition-colors break-all"
+                >
+                  {CONTACT.email}
+                </a>
+              </div>
+              <div className="p-5 bg-white/5 light:bg-slate-50 backdrop-blur-md rounded-xl border border-white/10 light:border-slate-200">
+                <p className="text-sm text-slate-500 light:text-slate-400 mb-2">Phone / WhatsApp</p>
+                <a
+                  href={`tel:${CONTACT.phone}`}
+                  className="text-white light:text-slate-800 text-sm hover:text-emerald-400 transition-colors"
+                >
+                  {CONTACT.phone}
+                </a>
               </div>
               <div className="p-5 bg-white/5 light:bg-slate-50 backdrop-blur-md rounded-xl border border-white/10 light:border-slate-200">
                 <p className="text-sm text-slate-500 light:text-slate-400 mb-2">Response time</p>

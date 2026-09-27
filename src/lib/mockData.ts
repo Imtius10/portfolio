@@ -1,4 +1,5 @@
 import { ProfileData } from "@/lib/types";
+import { CONTACT } from "@/lib/contact";
 
 export const mockProfile: ProfileData = {
   id: "mock-1",
@@ -13,18 +14,17 @@ My programming journey started with C++, which gave me a strong foundation in al
 I'm currently working with Next.js App Router, server components, Prisma ORM, and PostgreSQL to build production-ready applications. I enjoy the full cycle of shipping software: designing the data model, writing typed backend logic, crafting responsive UIs, and deploying to production.
 
 When I'm not coding, you'll find me solving algorithmic problems, exploring new frameworks, or reading about system design. I believe in continuous learning and am always looking for new challenges to grow as a developer.`,
-  email: "h.imtius10@gmail.com",
-  phone: "+8801614742777",
-  whatsapp: "+8801614742777",
-  resumeUrl: null,
-  lecturerResumeUrl: null,
+  email: CONTACT.email,
+  phone: CONTACT.phone,
+  whatsapp: CONTACT.whatsapp,
+  resumeUrl: "/resume",
+  lecturerResumeUrl: "/cv/lecturer",
   photoUrl: "/images/profile.jpg",
   socialLinks: [
-    { id: "sl-1", platform: "GitHub", url: "https://github.com/Imtius10", icon: null },
-    { id: "sl-2", platform: "LinkedIn", url: "https://www.linkedin.com/in/imtius10/", icon: null },
-    { id: "sl-3", platform: "Facebook", url: "https://www.facebook.com/", icon: null },
-    { id: "sl-4", platform: "Instagram", url: "https://www.instagram.com/imti.us/", icon: null },
-    { id: "sl-5", platform: "Twitter", url: "https://x.com/imtius__ahmad", icon: null },
+    { id: "sl-1", platform: "GitHub", url: CONTACT.github, icon: null },
+    { id: "sl-2", platform: "LinkedIn", url: CONTACT.linkedin, icon: null },
+    { id: "sl-3", platform: "Instagram", url: "https://www.instagram.com/imti.us/", icon: null },
+    { id: "sl-4", platform: "Twitter", url: "https://x.com/imtius__ahmad", icon: null },
   ],
   skills: [
     // Frontend

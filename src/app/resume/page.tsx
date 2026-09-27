@@ -4,6 +4,7 @@ import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { DEFAULT_CV, type CvContentData } from "@/lib/cvDefaults";
 import { mockProfile } from "@/lib/mockData";
+import { CONTACT, shortUrl } from "@/lib/contact";
 import type { Project } from "@/lib/types";
 
 interface Edu {
@@ -76,19 +77,19 @@ function contactFromProfile(data: unknown): Contact | null {
     p.socialLinks?.find((l) => l.platform.toLowerCase().includes(key))?.url ?? "";
   return {
     name: p.name,
-    email: p.email ?? "",
-    phone: p.phone ?? "",
-    github: find("github"),
-    linkedin: find("linkedin"),
+    email: p.email || CONTACT.email,
+    phone: p.phone || CONTACT.phone,
+    github: find("github") || CONTACT.github,
+    linkedin: find("linkedin") || CONTACT.linkedin,
   };
 }
 
 const FALLBACK_CONTACT: Contact = {
-  name: mockProfile.name,
-  email: mockProfile.email,
-  phone: mockProfile.phone ?? "",
-  github: "https://github.com/Imtius10",
-  linkedin: "https://www.linkedin.com/in/imtius10/",
+  name: CONTACT.name,
+  email: CONTACT.email,
+  phone: CONTACT.phone,
+  github: CONTACT.github,
+  linkedin: CONTACT.linkedin,
 };
 
 const FALLBACK_PROJECTS: Project[] = [...mockProfile.projects]
@@ -111,11 +112,7 @@ function fmtRange(startDate: string, endDate: string | null) {
   return `${start} – ${end}`;
 }
 
-function shortUrl(url: string) {
-  return url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
-}
-
-const h2 = "text-[11px] font-bold uppercase tracking-[0.12em] text-black border-b border-black pb-0.5 mb-1.5";
+const h2 = "text-[11px] font-bold uppercase text-black border-b border-black pb-0.5 mb-1";
 const linkCls = "text-blue-700 underline underline-offset-2 decoration-blue-300 hover:text-blue-900 cursor-pointer print:text-black print:decoration-black";
 
 function ProjectEntry({ p }: { p: Project }) {
@@ -123,7 +120,7 @@ function ProjectEntry({ p }: { p: Project }) {
     <div className="mb-1.5">
       <h3 className="text-[11px] font-bold text-black">{p.title}</h3>
       {(p.githubUrl || p.liveUrl) && (
-        <p className="text-[9.5px] leading-snug break-all">
+        <p className="text-[10px] leading-snug break-all">
           {p.githubUrl && (
             <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" className={linkCls}>{shortUrl(p.githubUrl)}</a>
           )}
@@ -153,7 +150,7 @@ function ResumeContent() {
   const [projects, setProjects] = useState<Project[]>(FALLBACK_PROJECTS);
 
   useEffect(() => {
-    document.title = `${FALLBACK_CONTACT.name} — Full Stack Developer`;
+    document.title = `${FALLBACK_CONTACT.name} - Full Stack Developer CV`;
     let cancelled = false;
 
     Promise.allSettled([
@@ -177,7 +174,7 @@ function ResumeContent() {
         const c = contactFromProfile(profileRes.value);
         if (c) {
           setContact(c);
-          document.title = `${c.name} — Full Stack Developer`;
+          document.title = `${c.name} - Full Stack Developer CV`;
         }
         const exp = (profileRes.value as { experience?: Exp[] }).experience;
         if (Array.isArray(exp) && exp.length > 0) {
@@ -232,35 +229,33 @@ function ResumeContent() {
         </div>
       </div>
 
-      <div className="pt-14 pb-10 flex justify-center bg-slate-100 min-h-screen print:pt-0 print:pb-0 print:bg-white">
-        <div className="w-[210mm] bg-white shadow-2xl shadow-slate-300/50 text-black overflow-hidden print:shadow-none print:m-0" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
+      <div className="pt-14 pb-10 flex justify-center bg-slate-100 min-h-screen print:block print:pt-0 print:pb-0 print:bg-white">
+        <div className="cv-sheet w-[210mm] bg-white shadow-2xl shadow-slate-300/50 text-black overflow-hidden print:w-full print:py-4 print:shadow-none print:m-0" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
           <div className="h-1 bg-black print:h-1" />
 
           <div className="px-7 py-3">
             <header className="mb-2.5">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h1 className="text-[26px] font-bold text-black leading-none">{contact.name}</h1>
-                  <p className="text-[12px] font-bold mt-1">{cv.headline}</p>
-                  <p className="text-[10px] text-slate-600 mt-0.5">{cv.locationLine}</p>
-                </div>
-                <div className="text-right text-[11px] text-black space-y-0.5 leading-tight">
-                  {contact.email && <p><a href={`mailto:${contact.email}`}>{contact.email}</a></p>}
-                  {contact.phone && <p><a href={`tel:${contact.phone.replace(/\s/g, "")}`}>{contact.phone}</a></p>}
-                  {contact.linkedin && <p><a href={contact.linkedin} target="_blank" rel="noopener noreferrer">{shortUrl(contact.linkedin)}</a></p>}
-                  {contact.github && <p><a href={contact.github} target="_blank" rel="noopener noreferrer">{shortUrl(contact.github)}</a></p>}
-                </div>
-              </div>
+              <h1 className="text-[26px] font-bold text-black leading-none">{contact.name}</h1>
+              <p className="text-[12px] font-bold mt-1">{cv.headline}</p>
+              <p className="text-[10px] text-slate-600 mt-0.5">{cv.locationLine}</p>
+              <p className="text-[11px] text-black mt-1 leading-tight">
+                {contact.email && <a href={`mailto:${contact.email}`}>{contact.email}</a>}
+                {contact.email && (contact.phone || contact.linkedin || contact.github) && <span className="mx-1.5 text-slate-400">|</span>}
+                {contact.phone && <a href={`tel:${contact.phone.replace(/\s/g, "")}`}>{contact.phone}</a>}
+                {contact.phone && (contact.linkedin || contact.github) && <span className="mx-1.5 text-slate-400">|</span>}
+                {contact.linkedin && <a href={contact.linkedin} target="_blank" rel="noopener noreferrer">{shortUrl(contact.linkedin)}</a>}
+                {contact.linkedin && contact.github && <span className="mx-1.5 text-slate-400">|</span>}
+                {contact.github && <a href={contact.github} target="_blank" rel="noopener noreferrer">{shortUrl(contact.github)}</a>}
+              </p>
             </header>
-            <p className="sr-only">{contact.name}. Email: {contact.email} | Phone: {contact.phone} | LinkedIn: {contact.linkedin} | GitHub: {contact.github}</p>
 
-            <section className="mb-2">
+            <section className="mb-1.5">
               <h2 className={h2}>Professional Summary</h2>
               <p className="text-[11px] leading-snug text-black">{cv.summary}</p>
             </section>
 
             {experience.length > 0 && (
-              <section className="mb-2">
+              <section className="mb-1.5">
                 <h2 className={h2}>Experience</h2>
                 {experience.map((exp) => (
                   <div key={exp.id} className="mb-1">
@@ -274,7 +269,7 @@ function ResumeContent() {
               </section>
             )}
 
-            <section className="mb-2">
+            <section className="mb-1.5">
               <h2 className={h2}>Education</h2>
               {education.map((edu) => (
                 <div key={edu.id} className="mb-1">
@@ -294,7 +289,7 @@ function ResumeContent() {
             </section>
 
             {skillRows.length > 0 && (
-              <section className="mb-2">
+              <section className="mb-1.5">
                 <h2 className={h2}>Technical Skills</h2>
                 <div className="grid grid-cols-2 print:grid-cols-1 gap-x-5 gap-y-0.5 text-[11px] leading-snug">
                   {skillRows.map(([label, value]) => (
@@ -305,7 +300,7 @@ function ResumeContent() {
             )}
 
             {projects.length > 0 && (
-              <section className="mb-2">
+              <section className="mb-1.5">
                 <h2 className={h2}>Projects</h2>
                 {projects.map((p) => (
                   <ProjectEntry key={p.id} p={p} />
@@ -314,7 +309,7 @@ function ResumeContent() {
             )}
 
             {cv.activities.length > 0 && (
-              <section className="mb-1.5">
+              <section className="mb-1">
                 <h2 className={h2}>Activities & Leadership</h2>
                 <ul className="text-[11px] text-black space-y-0.5 list-disc list-inside leading-snug">
                   {cv.activities.map((a, i) => (
@@ -337,7 +332,7 @@ function ResumeContent() {
           </div>
         </div>
       </div>
-      <style>{`@media print { @page { size: A4; margin: 6mm 8mm; } .print\\:hidden{display:none!important} }`}</style>
+      <style>{`@media print { @page { size: A4; margin: 0; } .print\\:hidden{display:none!important} }`}</style>
     </>
   );
 }
