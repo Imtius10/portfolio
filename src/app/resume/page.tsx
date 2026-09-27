@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { DEFAULT_CV, type CvContentData } from "@/lib/cvDefaults";
 import { mockProfile } from "@/lib/mockData";
 import { CONTACT, shortUrl } from "@/lib/contact";
@@ -140,8 +140,6 @@ function ProjectEntry({ p }: { p: Project }) {
 
 function ResumeContent() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const autoPrint = searchParams.get("print") === "1";
 
   const [cv, setCv] = useState<CvContentData>(DEFAULT_CV);
   const [contact, setContact] = useState<Contact>(FALLBACK_CONTACT);
@@ -152,6 +150,7 @@ function ResumeContent() {
   useEffect(() => {
     document.title = `${FALLBACK_CONTACT.name} - Full Stack Developer CV`;
     let cancelled = false;
+    const autoPrint = new URLSearchParams(window.location.search).get("print") === "1";
 
     Promise.allSettled([
       fetch("/api/cv").then((r) => (r.ok ? r.json() : null)),
@@ -200,7 +199,7 @@ function ResumeContent() {
     return () => {
       cancelled = true;
     };
-  }, [autoPrint]);
+  }, []);
 
   const handleDownload = () => window.print();
   const isBachelor = (edu: Edu) => edu.degree.toLowerCase().includes("bachelor");

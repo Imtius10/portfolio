@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import {
   DEFAULT_LECTURER_CV,
   type LecturerCvData,
@@ -92,8 +92,6 @@ function splitHead(text: string) {
 
 function LecturerCVContent() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const autoPrint = searchParams.get("print") === "1";
 
   const [cv, setCv] = useState<LecturerCvData>(DEFAULT_LECTURER_CV);
   const [contact, setContact] = useState<Contact>(FALLBACK_CONTACT);
@@ -102,6 +100,7 @@ function LecturerCVContent() {
   useEffect(() => {
     document.title = `${FALLBACK_CONTACT.name} - Lecturer CV`;
     let cancelled = false;
+    const autoPrint = new URLSearchParams(window.location.search).get("print") === "1";
 
     Promise.allSettled([
       fetch("/api/lecturer-cv").then((r) => (r.ok ? r.json() : null)),
@@ -138,7 +137,7 @@ function LecturerCVContent() {
     return () => {
       cancelled = true;
     };
-  }, [autoPrint]);
+  }, []);
 
   const handleDownload = () => window.print();
   const isBachelor = (edu: Edu) => edu.degree.toLowerCase().includes("bachelor");
